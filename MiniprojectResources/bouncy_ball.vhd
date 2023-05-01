@@ -39,15 +39,25 @@ Blue <=  not ball_on;
 
 Move_Ball: process (vert_sync) 
 variable prev_click_status: std_logic := '0';
-variable velocity: integer := 150;	
+variable velocity: integer := 150;
+variable thrust: integer := 0;	
 begin
 	-- Move ball once every vertical sync
 	if (rising_edge(vert_sync)) then
+		-- Update thrust 
+		if (thrust <= 20) then
+			thrust := 0;
+		else
+			thrust := thrust - 10;
+		end if;
+		
+		-- Set motion
 		if(left_click = '1' and prev_click_status = '0') then
-			ball_y_motion <= - CONV_STD_LOGIC_VECTOR(90,10);
 			velocity := 150;
-		elsif (ball_y_pos < 470) then
-			velocity := velocity + 20;
+			thrust := 150;
+			ball_y_motion <= - CONV_STD_LOGIC_VECTOR(0,10);
+		elsif (ball_y_pos < 470 or thrust > 0) then
+			velocity := velocity + 20 - thrust;
 			ball_y_motion <= CONV_STD_LOGIC_VECTOR(velocity/100,10);
 		else
 			ball_y_motion <= CONV_STD_LOGIC_VECTOR(0,10);
