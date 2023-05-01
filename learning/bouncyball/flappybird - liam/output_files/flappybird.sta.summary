@@ -1,0 +1,133 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'inst2|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : -4.939
+TNS   : -9.872
+
+Type  : Slow 1100mV 85C Model Setup 'VGA_SYNC:inst|vert_sync_out'
+Slack : -2.691
+TNS   : -30.868
+
+Type  : Slow 1100mV 85C Model Hold 'inst2|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : -5.092
+TNS   : -9.926
+
+Type  : Slow 1100mV 85C Model Hold 'VGA_SYNC:inst|vert_sync_out'
+Slack : 1.040
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'VGA_SYNC:inst|vert_sync_out'
+Slack : -0.538
+TNS   : -9.500
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'inst2|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 9.949
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'inst2|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 19.270
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'inst2|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : -4.632
+TNS   : -9.136
+
+Type  : Slow 1100mV 0C Model Setup 'VGA_SYNC:inst|vert_sync_out'
+Slack : -2.735
+TNS   : -30.767
+
+Type  : Slow 1100mV 0C Model Hold 'inst2|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : -5.219
+TNS   : -10.166
+
+Type  : Slow 1100mV 0C Model Hold 'VGA_SYNC:inst|vert_sync_out'
+Slack : 1.066
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'VGA_SYNC:inst|vert_sync_out'
+Slack : -0.538
+TNS   : -9.453
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'inst2|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 9.980
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'inst2|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 19.187
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'inst2|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : -3.152
+TNS   : -6.302
+
+Type  : Fast 1100mV 85C Model Setup 'VGA_SYNC:inst|vert_sync_out'
+Slack : -0.980
+TNS   : -10.700
+
+Type  : Fast 1100mV 85C Model Hold 'inst2|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : -2.730
+TNS   : -5.344
+
+Type  : Fast 1100mV 85C Model Hold 'VGA_SYNC:inst|vert_sync_out'
+Slack : 0.438
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'VGA_SYNC:inst|vert_sync_out'
+Slack : 0.106
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'inst2|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 9.643
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'inst2|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 19.554
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'inst2|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : -2.399
+TNS   : -4.798
+
+Type  : Fast 1100mV 0C Model Setup 'VGA_SYNC:inst|vert_sync_out'
+Slack : -0.869
+TNS   : -9.143
+
+Type  : Fast 1100mV 0C Model Hold 'inst2|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : -2.733
+TNS   : -5.353
+
+Type  : Fast 1100mV 0C Model Hold 'VGA_SYNC:inst|vert_sync_out'
+Slack : 0.405
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'VGA_SYNC:inst|vert_sync_out'
+Slack : 0.117
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'inst2|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 9.632
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'inst2|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 19.547
+TNS   : 0.000
+
+------------------------------------------------------------
