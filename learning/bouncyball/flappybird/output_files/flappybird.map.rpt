@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappybird
-Mon May 01 16:01:19 2023
+Mon May 01 18:41:58 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -14,14 +14,16 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis IP Cores Summary
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
+  9. State Machine - |backgroundcolourchangeexample|MOUSE:inst4|mouse_state
+ 10. Registers Removed During Synthesis
  11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i
- 14. Post-Synthesis Netlist Statistics for Top Partition
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i
+ 15. Parameter Settings for Inferred Entity Instance: bouncy_ball:inst3|lpm_divide:Div0
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
 
 
 
@@ -47,14 +49,14 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon May 01 16:01:19 2023           ;
+; Analysis & Synthesis Status     ; Successful - Mon May 01 18:41:57 2023           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappybird                                      ;
 ; Top-level Entity Name           ; backgroundcolourchangeexample                   ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 58                                              ;
-; Total pins                      ; 8                                               ;
+; Total registers                 ; 162                                             ;
+; Total pins                      ; 10                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 0                                               ;
 ; Total DSP Blocks                ; 0                                               ;
@@ -167,22 +169,38 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                        ;
-+---------------------------------------------+-----------------+------------------------------------+----------------------------------------------------------------+---------+
-; File Name with User-Entered Path            ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                   ; Library ;
-+---------------------------------------------+-----------------+------------------------------------+----------------------------------------------------------------+---------+
-; ../305/MiniprojectResources/vga_sync.vhd    ; yes             ; User VHDL File                     ; H:/Documents/305/MiniprojectResources/vga_sync.vhd             ;         ;
-; ../305/MiniprojectResources/bouncy_ball.vhd ; yes             ; User VHDL File                     ; H:/Documents/305/MiniprojectResources/bouncy_ball.vhd          ;         ;
-; backgroundcolourchangeexample.bdf           ; yes             ; User Block Diagram/Schematic File  ; H:/Documents/flappybird/backgroundcolourchangeexample.bdf      ;         ;
-; pll.vhd                                     ; yes             ; User Wizard-Generated File         ; H:/Documents/flappybird/pll.vhd                                ; pll     ;
-; pll/pll_0002.v                              ; yes             ; User Verilog HDL File              ; H:/Documents/flappybird/pll/pll_0002.v                         ; pll     ;
-; altera_pll.v                                ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v ;         ;
-+---------------------------------------------+-----------------+------------------------------------+----------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                ;
++-----------------------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path              ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                         ; Library ;
++-----------------------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------------------------+---------+
+; ../../../MiniprojectResources/vga_sync.vhd    ; yes             ; User VHDL File                     ; H:/Documents/305 project 2/FPGABird/MiniprojectResources/vga_sync.vhd                                ;         ;
+; ../../../MiniprojectResources/mouse.vhd       ; yes             ; User VHDL File                     ; H:/Documents/305 project 2/FPGABird/MiniprojectResources/mouse.vhd                                   ;         ;
+; ../../../MiniprojectResources/bouncy_ball.vhd ; yes             ; User VHDL File                     ; H:/Documents/305 project 2/FPGABird/MiniprojectResources/bouncy_ball.vhd                             ;         ;
+; backgroundcolourchangeexample.bdf             ; yes             ; User Block Diagram/Schematic File  ; H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/backgroundcolourchangeexample.bdf ;         ;
+; pll.vhd                                       ; yes             ; User Wizard-Generated File         ; H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/pll.vhd                           ; pll     ;
+; pll/pll_0002.v                                ; yes             ; User Verilog HDL File              ; H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/pll/pll_0002.v                    ; pll     ;
+; altera_pll.v                                  ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v                                       ;         ;
+; lpm_divide.tdf                                ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_divide.tdf                                     ;         ;
+; abs_divider.inc                               ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/abs_divider.inc                                    ;         ;
+; sign_div_unsign.inc                           ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/sign_div_unsign.inc                                ;         ;
+; aglobal181.inc                                ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/aglobal181.inc                                     ;         ;
+; db/lpm_divide_epo.tdf                         ; yes             ; Auto-Generated Megafunction        ; H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/db/lpm_divide_epo.tdf             ;         ;
+; db/abs_divider_nbg.tdf                        ; yes             ; Auto-Generated Megafunction        ; H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/db/abs_divider_nbg.tdf            ;         ;
+; db/alt_u_div_uve.tdf                          ; yes             ; Auto-Generated Megafunction        ; H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/db/alt_u_div_uve.tdf              ;         ;
+; db/lpm_abs_nn9.tdf                            ; yes             ; Auto-Generated Megafunction        ; H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/db/lpm_abs_nn9.tdf                ;         ;
+; db/lpm_abs_4p9.tdf                            ; yes             ; Auto-Generated Megafunction        ; H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/db/lpm_abs_4p9.tdf                ;         ;
++-----------------------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------------------------------------------------------------------+
@@ -190,18 +208,18 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                              ;
 +---------------------------------------------+--------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 52                                                                 ;
+; Estimate of Logic utilization (ALMs needed) ; 408                                                                ;
 ;                                             ;                                                                    ;
-; Combinational ALUT usage for logic          ; 87                                                                 ;
-;     -- 7 input functions                    ; 2                                                                  ;
-;     -- 6 input functions                    ; 11                                                                 ;
-;     -- 5 input functions                    ; 14                                                                 ;
-;     -- 4 input functions                    ; 8                                                                  ;
-;     -- <=3 input functions                  ; 52                                                                 ;
+; Combinational ALUT usage for logic          ; 781                                                                ;
+;     -- 7 input functions                    ; 1                                                                  ;
+;     -- 6 input functions                    ; 26                                                                 ;
+;     -- 5 input functions                    ; 21                                                                 ;
+;     -- 4 input functions                    ; 188                                                                ;
+;     -- <=3 input functions                  ; 545                                                                ;
 ;                                             ;                                                                    ;
-; Dedicated logic registers                   ; 58                                                                 ;
+; Dedicated logic registers                   ; 162                                                                ;
 ;                                             ;                                                                    ;
-; I/O pins                                    ; 8                                                                  ;
+; I/O pins                                    ; 10                                                                 ;
 ;                                             ;                                                                    ;
 ; Total DSP Blocks                            ; 0                                                                  ;
 ;                                             ;                                                                    ;
@@ -209,24 +227,30 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1                                                                  ;
 ;                                             ;                                                                    ;
 ; Maximum fan-out node                        ; pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 49                                                                 ;
-; Total fan-out                               ; 479                                                                ;
-; Average fan-out                             ; 2.96                                                               ;
+; Maximum fan-out                             ; 77                                                                 ;
+; Total fan-out                               ; 2889                                                               ;
+; Average fan-out                             ; 2.99                                                               ;
 +---------------------------------------------+--------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                             ;
-+------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------+-------------------------------+--------------+
-; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                ; Entity Name                   ; Library Name ;
-+------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------+-------------------------------+--------------+
-; |backgroundcolourchangeexample     ; 87 (0)              ; 58 (0)                    ; 0                 ; 0          ; 8    ; 0            ; |backgroundcolourchangeexample                                                     ; backgroundcolourchangeexample ; work         ;
-;    |VGA_SYNC:inst|                 ; 41 (41)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|VGA_SYNC:inst                                       ; VGA_SYNC                      ; work         ;
-;    |bouncy_ball:inst3|             ; 46 (46)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|bouncy_ball:inst3                                   ; bouncy_ball                   ; work         ;
-;    |pll:inst2|                     ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|pll:inst2                                           ; pll                           ; pll          ;
-;       |pll_0002:pll_inst|          ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|pll:inst2|pll_0002:pll_inst                         ; pll_0002                      ; pll          ;
-;          |altera_pll:altera_pll_i| ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i ; altera_pll                    ; work         ;
-+------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------+-------------------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                              ;
++------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------+--------------+
+; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                           ; Entity Name                   ; Library Name ;
++------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------+--------------+
+; |backgroundcolourchangeexample           ; 781 (0)             ; 162 (0)                   ; 0                 ; 0          ; 10   ; 0            ; |backgroundcolourchangeexample                                                                                                                ; backgroundcolourchangeexample ; work         ;
+;    |MOUSE:inst4|                         ; 50 (50)             ; 63 (63)                   ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|MOUSE:inst4                                                                                                    ; MOUSE                         ; work         ;
+;    |VGA_SYNC:inst|                       ; 41 (41)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|VGA_SYNC:inst                                                                                                  ; VGA_SYNC                      ; work         ;
+;    |bouncy_ball:inst3|                   ; 690 (96)            ; 51 (51)                   ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|bouncy_ball:inst3                                                                                              ; bouncy_ball                   ; work         ;
+;       |lpm_divide:Div0|                  ; 594 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|bouncy_ball:inst3|lpm_divide:Div0                                                                              ; lpm_divide                    ; work         ;
+;          |lpm_divide_epo:auto_generated| ; 594 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|bouncy_ball:inst3|lpm_divide:Div0|lpm_divide_epo:auto_generated                                                ; lpm_divide_epo                ; work         ;
+;             |abs_divider_nbg:divider|    ; 594 (10)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|bouncy_ball:inst3|lpm_divide:Div0|lpm_divide_epo:auto_generated|abs_divider_nbg:divider                        ; abs_divider_nbg               ; work         ;
+;                |alt_u_div_uve:divider|   ; 552 (552)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|bouncy_ball:inst3|lpm_divide:Div0|lpm_divide_epo:auto_generated|abs_divider_nbg:divider|alt_u_div_uve:divider  ; alt_u_div_uve                 ; work         ;
+;                |lpm_abs_4p9:my_abs_num|  ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|bouncy_ball:inst3|lpm_divide:Div0|lpm_divide_epo:auto_generated|abs_divider_nbg:divider|lpm_abs_4p9:my_abs_num ; lpm_abs_4p9                   ; work         ;
+;    |pll:inst2|                           ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|pll:inst2                                                                                                      ; pll                           ; pll          ;
+;       |pll_0002:pll_inst|                ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|pll:inst2|pll_0002:pll_inst                                                                                    ; pll_0002                      ; pll          ;
+;          |altera_pll:altera_pll_i|       ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i                                                            ; altera_pll                    ; work         ;
++------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -239,28 +263,36 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+------------------------------------------+-----------------+
 
 
-+-----------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                      ;
-+----------------------------------------+------------------------------------------------+
-; Register name                          ; Reason for Removal                             ;
-+----------------------------------------+------------------------------------------------+
-; bouncy_ball:inst3|ball_y_motion[3..9]  ; Merged with bouncy_ball:inst3|ball_y_motion[2] ;
-; bouncy_ball:inst3|ball_y_motion[0]     ; Stuck at GND due to stuck port data_in         ;
-; bouncy_ball:inst3|ball_y_pos[0]        ; Stuck at GND due to stuck port data_in         ;
-; bouncy_ball:inst3|ball_y_motion[1]     ; Stuck at VCC due to stuck port data_in         ;
-; VGA_SYNC:inst|pixel_row[9]             ; Stuck at GND due to stuck port data_in         ;
-; Total Number of Removed Registers = 11 ;                                                ;
-+----------------------------------------+------------------------------------------------+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |backgroundcolourchangeexample|MOUSE:inst4|mouse_state                                                                                                                                  ;
++-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
+; Name                          ; mouse_state.INPUT_PACKETS ; mouse_state.WAIT_CMD_ACK ; mouse_state.WAIT_OUTPUT_READY ; mouse_state.LOAD_COMMAND2 ; mouse_state.LOAD_COMMAND ; mouse_state.INHIBIT_TRANS ;
++-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
+; mouse_state.INHIBIT_TRANS     ; 0                         ; 0                        ; 0                             ; 0                         ; 0                        ; 0                         ;
+; mouse_state.LOAD_COMMAND      ; 0                         ; 0                        ; 0                             ; 0                         ; 1                        ; 1                         ;
+; mouse_state.LOAD_COMMAND2     ; 0                         ; 0                        ; 0                             ; 1                         ; 0                        ; 1                         ;
+; mouse_state.WAIT_OUTPUT_READY ; 0                         ; 0                        ; 1                             ; 0                         ; 0                        ; 1                         ;
+; mouse_state.WAIT_CMD_ACK      ; 0                         ; 1                        ; 0                             ; 0                         ; 0                        ; 1                         ;
+; mouse_state.INPUT_PACKETS     ; 1                         ; 0                        ; 0                             ; 0                         ; 0                        ; 1                         ;
++-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
 
 
-+------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                          ;
-+---------------------------------+---------------------------+----------------------------------------+
-; Register name                   ; Reason for Removal        ; Registers Removed due to This Register ;
-+---------------------------------+---------------------------+----------------------------------------+
-; bouncy_ball:inst3|ball_y_pos[0] ; Stuck at GND              ; bouncy_ball:inst3|ball_y_motion[1]     ;
-;                                 ; due to stuck port data_in ;                                        ;
-+---------------------------------+---------------------------+----------------------------------------+
++-----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                ;
++------------------------------------------+----------------------------------------+
+; Register name                            ; Reason for Removal                     ;
++------------------------------------------+----------------------------------------+
+; bouncy_ball:inst3|\Move_Ball:velocity[0] ; Stuck at GND due to stuck port data_in ;
+; bouncy_ball:inst3|\Move_Ball:velocity[1] ; Stuck at VCC due to stuck port data_in ;
+; MOUSE:inst4|CHAROUT[4..7]                ; Stuck at VCC due to stuck port data_in ;
+; MOUSE:inst4|CHAROUT[3]                   ; Stuck at GND due to stuck port data_in ;
+; MOUSE:inst4|CHAROUT[2]                   ; Stuck at VCC due to stuck port data_in ;
+; MOUSE:inst4|CHAROUT[0,1]                 ; Stuck at GND due to stuck port data_in ;
+; MOUSE:inst4|SHIFTOUT[10]                 ; Stuck at VCC due to stuck port data_in ;
+; VGA_SYNC:inst|pixel_row[9]               ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 12   ;                                        ;
++------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -268,24 +300,45 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 58    ;
-; Number of registers using Synchronous Clear  ; 20    ;
+; Total registers                              ; 162   ;
+; Number of registers using Synchronous Clear  ; 47    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 16    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 29    ;
+; Number of registers using Clock Enable       ; 101   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |backgroundcolourchangeexample|VGA_SYNC:inst|v_count[9]           ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |backgroundcolourchangeexample|bouncy_ball:inst3|ball_y_motion[1] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
++----------------------------------------------------+
+; Inverted Register Statistics                       ;
++------------------------------------------+---------+
+; Inverted Register                        ; Fan out ;
++------------------------------------------+---------+
+; MOUSE:inst4|send_char                    ; 3       ;
+; MOUSE:inst4|SHIFTOUT[3]                  ; 1       ;
+; MOUSE:inst4|SHIFTOUT[5]                  ; 1       ;
+; MOUSE:inst4|SHIFTOUT[6]                  ; 1       ;
+; bouncy_ball:inst3|\Move_Ball:velocity[7] ; 1       ;
+; MOUSE:inst4|SHIFTOUT[7]                  ; 1       ;
+; MOUSE:inst4|SHIFTOUT[8]                  ; 1       ;
+; bouncy_ball:inst3|\Move_Ball:velocity[4] ; 1       ;
+; bouncy_ball:inst3|\Move_Ball:velocity[2] ; 1       ;
+; Total number of inverted registers = 9   ;         ;
++------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------+
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |backgroundcolourchangeexample|VGA_SYNC:inst|v_count[6]                  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |backgroundcolourchangeexample|bouncy_ball:inst3|ball_y_motion[1]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |backgroundcolourchangeexample|bouncy_ball:inst3|ball_y_motion[0]        ;
+; 3:1                ; 27 bits   ; 54 LEs        ; 0 LEs                ; 54 LEs                 ; Yes        ; |backgroundcolourchangeexample|bouncy_ball:inst3|\Move_Ball:velocity[11] ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |backgroundcolourchangeexample|bouncy_ball:inst3|\Move_Ball:velocity[4]  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------+
@@ -535,34 +588,66 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bouncy_ball:inst3|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                  ;
+; LPM_WIDTHD             ; 8              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_epo ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 58                          ;
-;     ENA               ; 19                          ;
-;     ENA SCLR          ; 10                          ;
+; arriav_ff             ; 162                         ;
+;     CLR               ; 1                           ;
+;     ENA               ; 49                          ;
+;     ENA CLR           ; 15                          ;
+;     ENA SCLR          ; 37                          ;
 ;     SCLR              ; 10                          ;
-;     plain             ; 19                          ;
-; arriav_lcell_comb     ; 87                          ;
-;     arith             ; 42                          ;
+;     plain             ; 50                          ;
+; arriav_io_obuf        ; 2                           ;
+; arriav_lcell_comb     ; 781                         ;
+;     arith             ; 400                         ;
+;         0 data inputs ; 52                          ;
+;         1 data inputs ; 107                         ;
+;         2 data inputs ; 45                          ;
+;         3 data inputs ; 100                         ;
+;         4 data inputs ; 96                          ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 372                         ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 207                         ;
+;         3 data inputs ; 21                          ;
+;         4 data inputs ; 92                          ;
+;         5 data inputs ; 21                          ;
+;         6 data inputs ; 26                          ;
+;     shared            ; 8                           ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 31                          ;
-;         2 data inputs ; 10                          ;
-;     extend            ; 2                           ;
-;         7 data inputs ; 2                           ;
-;     normal            ; 43                          ;
-;         2 data inputs ; 1                           ;
-;         3 data inputs ; 9                           ;
-;         4 data inputs ; 8                           ;
-;         5 data inputs ; 14                          ;
-;         6 data inputs ; 11                          ;
-; boundary_port         ; 8                           ;
+;         1 data inputs ; 7                           ;
+; boundary_port         ; 10                          ;
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.30                        ;
-; Average LUT depth     ; 2.62                        ;
+; Max LUT depth         ; 57.80                       ;
+; Average LUT depth     ; 40.61                       ;
 +-----------------------+-----------------------------+
 
 
@@ -571,7 +656,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -581,40 +666,40 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Mon May 01 16:01:08 2023
+    Info: Processing started: Mon May 01 18:41:47 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappybird -c flappybird
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file /documents/305/miniprojectresources/vga_sync.vhd
-    Info (12022): Found design unit 1: VGA_SYNC-a File: H:/Documents/305/MiniprojectResources/vga_sync.vhd Line: 13
-    Info (12023): Found entity 1: VGA_SYNC File: H:/Documents/305/MiniprojectResources/vga_sync.vhd Line: 7
-Info (12021): Found 2 design units, including 1 entities, in source file /documents/305/miniprojectresources/mouse.vhd
-    Info (12022): Found design unit 1: MOUSE-behavior File: H:/Documents/305/MiniprojectResources/mouse.vhd Line: 18
-    Info (12023): Found entity 1: MOUSE File: H:/Documents/305/MiniprojectResources/mouse.vhd Line: 9
-Info (12021): Found 2 design units, including 1 entities, in source file /documents/305/miniprojectresources/char_rom.vhd
-    Info (12022): Found design unit 1: char_rom-SYN File: H:/Documents/305/MiniprojectResources/char_rom.vhd Line: 20
-    Info (12023): Found entity 1: char_rom File: H:/Documents/305/MiniprojectResources/char_rom.vhd Line: 9
-Info (12021): Found 2 design units, including 1 entities, in source file /documents/305/miniprojectresources/bouncy_ball.vhd
-    Info (12022): Found design unit 1: bouncy_ball-behavior File: H:/Documents/305/MiniprojectResources/bouncy_ball.vhd Line: 14
-    Info (12023): Found entity 1: bouncy_ball File: H:/Documents/305/MiniprojectResources/bouncy_ball.vhd Line: 7
-Info (12021): Found 2 design units, including 1 entities, in source file /documents/305/miniprojectresources/ball.vhd
-    Info (12022): Found design unit 1: ball-behavior File: H:/Documents/305/MiniprojectResources/ball.vhd Line: 14
-    Info (12023): Found entity 1: ball File: H:/Documents/305/MiniprojectResources/ball.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 project 2/fpgabird/miniprojectresources/vga_sync.vhd
+    Info (12022): Found design unit 1: VGA_SYNC-a File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/vga_sync.vhd Line: 13
+    Info (12023): Found entity 1: VGA_SYNC File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/vga_sync.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 project 2/fpgabird/miniprojectresources/mouse.vhd
+    Info (12022): Found design unit 1: MOUSE-behavior File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/mouse.vhd Line: 18
+    Info (12023): Found entity 1: MOUSE File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/mouse.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 project 2/fpgabird/miniprojectresources/char_rom.vhd
+    Info (12022): Found design unit 1: char_rom-SYN File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/char_rom.vhd Line: 20
+    Info (12023): Found entity 1: char_rom File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/char_rom.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 project 2/fpgabird/miniprojectresources/bouncy_ball.vhd
+    Info (12022): Found design unit 1: bouncy_ball-behavior File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/bouncy_ball.vhd Line: 14
+    Info (12023): Found entity 1: bouncy_ball File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/bouncy_ball.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file /documents/305 project 2/fpgabird/miniprojectresources/ball.vhd
+    Info (12022): Found design unit 1: ball-behavior File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/ball.vhd Line: 14
+    Info (12023): Found entity 1: ball File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/ball.vhd Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file backgroundcolourchangeexample.bdf
     Info (12023): Found entity 1: backgroundcolourchangeexample
 Info (12021): Found 2 design units, including 1 entities, in source file pll.vhd
-    Info (12022): Found design unit 1: pll-rtl File: H:/Documents/flappybird/pll.vhd Line: 20
-    Info (12023): Found entity 1: pll File: H:/Documents/flappybird/pll.vhd Line: 11
+    Info (12022): Found design unit 1: pll-rtl File: H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/pll.vhd Line: 20
+    Info (12023): Found entity 1: pll File: H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/pll.vhd Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file pll/pll_0002.v
-    Info (12023): Found entity 1: pll_0002 File: H:/Documents/flappybird/pll/pll_0002.v Line: 2
+    Info (12023): Found entity 1: pll_0002 File: H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/pll/pll_0002.v Line: 2
 Info (12127): Elaborating entity "backgroundcolourchangeexample" for the top level hierarchy
 Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:inst"
 Info (12128): Elaborating entity "pll" for hierarchy "pll:inst2"
-Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:inst2|pll_0002:pll_inst" File: H:/Documents/flappybird/pll.vhd Line: 32
-Info (12128): Elaborating entity "altera_pll" for hierarchy "pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i" File: H:/Documents/flappybird/pll/pll_0002.v Line: 85
+Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:inst2|pll_0002:pll_inst" File: H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/pll.vhd Line: 32
+Info (12128): Elaborating entity "altera_pll" for hierarchy "pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i" File: H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/pll/pll_0002.v Line: 85
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
-Info (12130): Elaborated megafunction instantiation "pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i" File: H:/Documents/flappybird/pll/pll_0002.v Line: 85
-Info (12133): Instantiated megafunction "pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i" with the following parameter: File: H:/Documents/flappybird/pll/pll_0002.v Line: 85
+Info (12130): Elaborated megafunction instantiation "pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i" File: H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/pll/pll_0002.v Line: 85
+Info (12133): Instantiated megafunction "pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i" with the following parameter: File: H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/pll/pll_0002.v Line: 85
     Info (12134): Parameter "fractional_vco_multiplier" = "false"
     Info (12134): Parameter "reference_clock_frequency" = "50.0 MHz"
     Info (12134): Parameter "operation_mode" = "direct"
@@ -676,6 +761,33 @@ Info (12133): Instantiated megafunction "pll:inst2|pll_0002:pll_inst|altera_pll:
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
 Info (12128): Elaborating entity "bouncy_ball" for hierarchy "bouncy_ball:inst3"
+Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:inst4"
+Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/mouse.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/mouse.vhd Line: 151
+Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/mouse.vhd Line: 155
+Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/mouse.vhd Line: 156
+Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/mouse.vhd Line: 157
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bouncy_ball:inst3|Div0" File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/bouncy_ball.vhd Line: 51
+Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst3|lpm_divide:Div0" File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/bouncy_ball.vhd Line: 51
+Info (12133): Instantiated megafunction "bouncy_ball:inst3|lpm_divide:Div0" with the following parameter: File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/bouncy_ball.vhd Line: 51
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_epo.tdf
+    Info (12023): Found entity 1: lpm_divide_epo File: H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/db/lpm_divide_epo.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_nbg.tdf
+    Info (12023): Found entity 1: abs_divider_nbg File: H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/db/abs_divider_nbg.tdf Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_uve.tdf
+    Info (12023): Found entity 1: alt_u_div_uve File: H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/db/alt_u_div_uve.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_nn9.tdf
+    Info (12023): Found entity 1: lpm_abs_nn9 File: H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/db/lpm_abs_nn9.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_4p9.tdf
+    Info (12023): Found entity 1: lpm_abs_4p9 File: H:/Documents/305 project 2/FPGABird/learning/bouncyball/flappybird/db/lpm_abs_4p9.tdf Line: 22
+Info (13000): Registers with preset signals will power-up high File: H:/Documents/305 project 2/FPGABird/MiniprojectResources/mouse.vhd Line: 146
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
@@ -912,15 +1024,16 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 3 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
     Info: Must be connected
-Info (21057): Implemented 119 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 867 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 110 logic cells
+    Info (21060): Implemented 2 bidirectional pins
+    Info (21061): Implemented 856 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 233 warnings
-    Info: Peak virtual memory: 4892 megabytes
-    Info: Processing ended: Mon May 01 16:01:19 2023
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 238 warnings
+    Info: Peak virtual memory: 4901 megabytes
+    Info: Processing ended: Mon May 01 18:41:58 2023
     Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:16
+    Info: Total CPU time (on all processors): 00:00:18
 
 

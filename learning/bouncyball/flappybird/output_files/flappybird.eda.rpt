@@ -1,5 +1,5 @@
 EDA Netlist Writer report for flappybird
-Mon May 01 16:02:21 2023
+Mon May 01 18:35:25 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -34,7 +34,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                                       ;
 +---------------------------+------------------------------------------------------+
-; EDA Netlist Writer Status ; No Output Files Generated - Mon May 01 16:02:21 2023 ;
+; EDA Netlist Writer Status ; No Output Files Generated - Mon May 01 18:35:25 2023 ;
 ; Revision Name             ; flappybird                                           ;
 ; Top-level Entity Name     ; backgroundcolourchangeexample                        ;
 ; Family                    ; Cyclone V                                            ;
@@ -47,7 +47,7 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Mon May 01 16:02:19 2023
+    Info: Processing started: Mon May 01 18:35:24 2023
 Info: Command: quartus_eda --read_settings_files=on --write_settings_files=off flappybird -c flappybird
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
@@ -284,8 +284,8 @@ Warning (18236): Number of processors has not been specified which may cause ove
 Warning (199027): Can't generate output files. Specify command-line options to generate output files, or update EDA tool settings using GUI or Tcl script.
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 233 warnings
     Info: Peak virtual memory: 4708 megabytes
-    Info: Processing ended: Mon May 01 16:02:21 2023
-    Info: Elapsed time: 00:00:02
+    Info: Processing ended: Mon May 01 18:35:25 2023
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 
