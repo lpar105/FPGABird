@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappybird
-Wed May 03 16:48:05 2023
+Wed May 03 17:01:49 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -19,7 +19,7 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  11. Inverted Register Statistics
  12. Multiplexer Restructuring Statistics (Restructuring Performed)
  13. Parameter Settings for User Entity Instance: pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i
- 14. Parameter Settings for Inferred Entity Instance: bird:inst6|lpm_divide:Div0
+ 14. Parameter Settings for Inferred Entity Instance: bird:inst3|lpm_divide:Div0
  15. Post-Synthesis Netlist Statistics for Top Partition
  16. Elapsed Time Per Partition
  17. Analysis & Synthesis Messages
@@ -48,14 +48,14 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed May 03 16:48:05 2023       ;
+; Analysis & Synthesis Status     ; Successful - Wed May 03 17:01:49 2023       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; flappybird                                  ;
 ; Top-level Entity Name           ; main_connections                            ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 195                                         ;
-; Total pins                      ; 10                                          ;
+; Total registers                 ; 193                                         ;
+; Total pins                      ; 8                                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -203,18 +203,18 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------------------------+
 ; Resource                                    ; Usage                       ;
 +---------------------------------------------+-----------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 447                         ;
+; Estimate of Logic utilization (ALMs needed) ; 444                         ;
 ;                                             ;                             ;
-; Combinational ALUT usage for logic          ; 858                         ;
+; Combinational ALUT usage for logic          ; 853                         ;
 ;     -- 7 input functions                    ; 1                           ;
-;     -- 6 input functions                    ; 28                          ;
-;     -- 5 input functions                    ; 27                          ;
-;     -- 4 input functions                    ; 203                         ;
-;     -- <=3 input functions                  ; 599                         ;
+;     -- 6 input functions                    ; 27                          ;
+;     -- 5 input functions                    ; 26                          ;
+;     -- 4 input functions                    ; 201                         ;
+;     -- <=3 input functions                  ; 598                         ;
 ;                                             ;                             ;
-; Dedicated logic registers                   ; 195                         ;
+; Dedicated logic registers                   ; 193                         ;
 ;                                             ;                             ;
-; I/O pins                                    ; 10                          ;
+; I/O pins                                    ; 8                           ;
 ;                                             ;                             ;
 ; Total DSP Blocks                            ; 0                           ;
 ;                                             ;                             ;
@@ -223,8 +223,8 @@ refer to the applicable agreement for further details.
 ;                                             ;                             ;
 ; Maximum fan-out node                        ; VGA_SYNC:inst|vert_sync_out ;
 ; Maximum fan-out                             ; 85                          ;
-; Total fan-out                               ; 3276                        ;
-; Average fan-out                             ; 3.04                        ;
+; Total fan-out                               ; 3245                        ;
+; Average fan-out                             ; 3.05                        ;
 +---------------------------------------------+-----------------------------+
 
 
@@ -233,15 +233,15 @@ refer to the applicable agreement for further details.
 +------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
 ; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                       ; Entity Name      ; Library Name ;
 +------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
-; |main_connections                        ; 858 (0)             ; 195 (0)                   ; 0                 ; 0          ; 10   ; 0            ; |main_connections                                                                                                         ; main_connections ; work         ;
+; |main_connections                        ; 853 (0)             ; 193 (0)                   ; 0                 ; 0          ; 8    ; 0            ; |main_connections                                                                                                         ; main_connections ; work         ;
 ;    |MOUSE:inst4|                         ; 50 (50)             ; 63 (63)                   ; 0                 ; 0          ; 0    ; 0            ; |main_connections|MOUSE:inst4                                                                                             ; MOUSE            ; work         ;
-;    |VGA_SYNC:inst|                       ; 41 (41)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |main_connections|VGA_SYNC:inst                                                                                           ; VGA_SYNC         ; work         ;
-;    |bird:inst6|                          ; 767 (163)           ; 84 (84)                   ; 0                 ; 0          ; 0    ; 0            ; |main_connections|bird:inst6                                                                                              ; bird             ; work         ;
-;       |lpm_divide:Div0|                  ; 604 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main_connections|bird:inst6|lpm_divide:Div0                                                                              ; lpm_divide       ; work         ;
-;          |lpm_divide_epo:auto_generated| ; 604 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main_connections|bird:inst6|lpm_divide:Div0|lpm_divide_epo:auto_generated                                                ; lpm_divide_epo   ; work         ;
-;             |abs_divider_nbg:divider|    ; 604 (20)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main_connections|bird:inst6|lpm_divide:Div0|lpm_divide_epo:auto_generated|abs_divider_nbg:divider                        ; abs_divider_nbg  ; work         ;
-;                |alt_u_div_uve:divider|   ; 552 (552)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main_connections|bird:inst6|lpm_divide:Div0|lpm_divide_epo:auto_generated|abs_divider_nbg:divider|alt_u_div_uve:divider  ; alt_u_div_uve    ; work         ;
-;                |lpm_abs_4p9:my_abs_num|  ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main_connections|bird:inst6|lpm_divide:Div0|lpm_divide_epo:auto_generated|abs_divider_nbg:divider|lpm_abs_4p9:my_abs_num ; lpm_abs_4p9      ; work         ;
+;    |VGA_SYNC:inst|                       ; 39 (39)             ; 46 (46)                   ; 0                 ; 0          ; 0    ; 0            ; |main_connections|VGA_SYNC:inst                                                                                           ; VGA_SYNC         ; work         ;
+;    |bird:inst3|                          ; 764 (160)           ; 84 (84)                   ; 0                 ; 0          ; 0    ; 0            ; |main_connections|bird:inst3                                                                                              ; bird             ; work         ;
+;       |lpm_divide:Div0|                  ; 604 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main_connections|bird:inst3|lpm_divide:Div0                                                                              ; lpm_divide       ; work         ;
+;          |lpm_divide_epo:auto_generated| ; 604 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main_connections|bird:inst3|lpm_divide:Div0|lpm_divide_epo:auto_generated                                                ; lpm_divide_epo   ; work         ;
+;             |abs_divider_nbg:divider|    ; 604 (20)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main_connections|bird:inst3|lpm_divide:Div0|lpm_divide_epo:auto_generated|abs_divider_nbg:divider                        ; abs_divider_nbg  ; work         ;
+;                |alt_u_div_uve:divider|   ; 552 (552)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main_connections|bird:inst3|lpm_divide:Div0|lpm_divide_epo:auto_generated|abs_divider_nbg:divider|alt_u_div_uve:divider  ; alt_u_div_uve    ; work         ;
+;                |lpm_abs_4p9:my_abs_num|  ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main_connections|bird:inst3|lpm_divide:Div0|lpm_divide_epo:auto_generated|abs_divider_nbg:divider|lpm_abs_4p9:my_abs_num ; lpm_abs_4p9      ; work         ;
 ;    |pll:inst2|                           ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main_connections|pll:inst2                                                                                               ; pll              ; pll          ;
 ;       |pll_0002:pll_inst|                ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main_connections|pll:inst2|pll_0002:pll_inst                                                                             ; pll_0002         ; pll          ;
 ;          |altera_pll:altera_pll_i|       ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main_connections|pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i                                                     ; altera_pll       ; work         ;
@@ -274,9 +274,11 @@ Encoding Type:  One-Hot
 ; MOUSE:inst4|CHAROUT[2]                 ; Stuck at VCC due to stuck port data_in ;
 ; MOUSE:inst4|CHAROUT[0,1]               ; Stuck at GND due to stuck port data_in ;
 ; MOUSE:inst4|SHIFTOUT[10]               ; Stuck at VCC due to stuck port data_in ;
-; bird:inst6|\Move_Ball:thrust[0]        ; Stuck at GND due to stuck port data_in ;
+; bird:inst3|\Move_Bird:thrust[0]        ; Stuck at GND due to stuck port data_in ;
 ; VGA_SYNC:inst|pixel_row[9]             ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 11 ;                                        ;
+; VGA_SYNC:inst|green_out                ; Stuck at GND due to stuck port data_in ;
+; VGA_SYNC:inst|red_out                  ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 13 ;                                        ;
 +----------------------------------------+----------------------------------------+
 
 
@@ -285,7 +287,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 195   ;
+; Total registers                              ; 193   ;
 ; Number of registers using Synchronous Clear  ; 85    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 16    ;
@@ -304,12 +306,12 @@ Encoding Type:  One-Hot
 ; MOUSE:inst4|SHIFTOUT[3]                 ; 1       ;
 ; MOUSE:inst4|SHIFTOUT[5]                 ; 1       ;
 ; MOUSE:inst4|SHIFTOUT[6]                 ; 1       ;
-; bird:inst6|\Move_Ball:velocity[7]       ; 1       ;
+; bird:inst3|\Move_Bird:velocity[7]       ; 1       ;
 ; MOUSE:inst4|SHIFTOUT[7]                 ; 1       ;
 ; MOUSE:inst4|SHIFTOUT[8]                 ; 1       ;
-; bird:inst6|\Move_Ball:velocity[4]       ; 1       ;
-; bird:inst6|\Move_Ball:velocity[2]       ; 1       ;
-; bird:inst6|\Move_Ball:velocity[1]       ; 1       ;
+; bird:inst3|\Move_Bird:velocity[4]       ; 1       ;
+; bird:inst3|\Move_Bird:velocity[2]       ; 1       ;
+; bird:inst3|\Move_Bird:velocity[1]       ; 1       ;
 ; Total number of inverted registers = 10 ;         ;
 +-----------------------------------------+---------+
 
@@ -320,9 +322,9 @@ Encoding Type:  One-Hot
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
 ; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |main_connections|VGA_SYNC:inst|v_count[2]           ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |main_connections|bird:inst6|ball_y_motion[2]        ;
-; 3:1                ; 28 bits   ; 56 LEs        ; 0 LEs                ; 56 LEs                 ; Yes        ; |main_connections|bird:inst6|\Move_Ball:velocity[31] ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |main_connections|bird:inst6|\Move_Ball:velocity[2]  ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |main_connections|bird:inst3|bird_y_motion[2]        ;
+; 3:1                ; 28 bits   ; 56 LEs        ; 0 LEs                ; 56 LEs                 ; Yes        ; |main_connections|bird:inst3|\Move_Bird:velocity[31] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |main_connections|bird:inst3|\Move_Bird:velocity[2]  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
 
 
@@ -574,7 +576,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +-----------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: bird:inst6|lpm_divide:Div0 ;
+; Parameter Settings for Inferred Entity Instance: bird:inst3|lpm_divide:Div0 ;
 +------------------------+----------------+-----------------------------------+
 ; Parameter Name         ; Value          ; Type                              ;
 +------------------------+----------------+-----------------------------------+
@@ -601,15 +603,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 195                         ;
+; arriav_ff             ; 193                         ;
 ;     CLR               ; 1                           ;
 ;     ENA               ; 50                          ;
 ;     ENA CLR           ; 15                          ;
 ;     ENA SCLR          ; 38                          ;
 ;     SCLR              ; 47                          ;
-;     plain             ; 44                          ;
+;     plain             ; 42                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 858                         ;
+; arriav_lcell_comb     ; 854                         ;
 ;     arith             ; 401                         ;
 ;         0 data inputs ; 52                          ;
 ;         1 data inputs ; 106                         ;
@@ -618,23 +620,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         4 data inputs ; 96                          ;
 ;     extend            ; 1                           ;
 ;         7 data inputs ; 1                           ;
-;     normal            ; 416                         ;
+;     normal            ; 412                         ;
+;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 5                           ;
-;         2 data inputs ; 205                         ;
-;         3 data inputs ; 60                          ;
-;         4 data inputs ; 91                          ;
-;         5 data inputs ; 27                          ;
-;         6 data inputs ; 28                          ;
+;         2 data inputs ; 206                         ;
+;         3 data inputs ; 58                          ;
+;         4 data inputs ; 89                          ;
+;         5 data inputs ; 26                          ;
+;         6 data inputs ; 27                          ;
 ;     shared            ; 40                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 8                           ;
 ;         2 data inputs ; 15                          ;
 ;         4 data inputs ; 16                          ;
-; boundary_port         ; 10                          ;
+; boundary_port         ; 8                           ;
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 60.70                       ;
-; Average LUT depth     ; 43.80                       ;
+; Average LUT depth     ; 44.02                       ;
 +-----------------------+-----------------------------+
 
 
@@ -643,7 +646,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -653,7 +656,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Wed May 03 16:47:38 2023
+    Info: Processing started: Wed May 03 17:01:26 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappybird -c flappybird
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -741,7 +744,9 @@ Info (12133): Instantiated megafunction "pll:inst2|pll_0002:pll_inst|altera_pll:
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "bird" for hierarchy "bird:inst6"
+Info (12128): Elaborating entity "bird" for hierarchy "bird:inst3"
+Warning (10541): VHDL Signal Declaration warning at bird.vhd(11): used implicit default value for signal "red" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/laure_eqxylm1/Desktop/repos/FPGABird/prototype/bird.vhd Line: 11
+Warning (10541): VHDL Signal Declaration warning at bird.vhd(11): used implicit default value for signal "green" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/laure_eqxylm1/Desktop/repos/FPGABird/prototype/bird.vhd Line: 11
 Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:inst4"
 Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/laure_eqxylm1/Desktop/repos/FPGABird/prototype/mouse.vhd Line: 25
 Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/laure_eqxylm1/Desktop/repos/FPGABird/prototype/mouse.vhd Line: 151
@@ -749,9 +754,9 @@ Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHARO
 Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/laure_eqxylm1/Desktop/repos/FPGABird/prototype/mouse.vhd Line: 156
 Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/laure_eqxylm1/Desktop/repos/FPGABird/prototype/mouse.vhd Line: 157
 Info (278001): Inferred 1 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bird:inst6|Div0" File: C:/Users/laure_eqxylm1/Desktop/repos/FPGABird/prototype/bird.vhd Line: 61
-Info (12130): Elaborated megafunction instantiation "bird:inst6|lpm_divide:Div0" File: C:/Users/laure_eqxylm1/Desktop/repos/FPGABird/prototype/bird.vhd Line: 61
-Info (12133): Instantiated megafunction "bird:inst6|lpm_divide:Div0" with the following parameter: File: C:/Users/laure_eqxylm1/Desktop/repos/FPGABird/prototype/bird.vhd Line: 61
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bird:inst3|Div0" File: C:/Users/laure_eqxylm1/Desktop/repos/FPGABird/prototype/bird.vhd Line: 59
+Info (12130): Elaborated megafunction instantiation "bird:inst3|lpm_divide:Div0" File: C:/Users/laure_eqxylm1/Desktop/repos/FPGABird/prototype/bird.vhd Line: 59
+Info (12133): Instantiated megafunction "bird:inst3|lpm_divide:Div0" with the following parameter: File: C:/Users/laure_eqxylm1/Desktop/repos/FPGABird/prototype/bird.vhd Line: 59
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "8"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -769,6 +774,9 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_
     Info (12023): Found entity 1: lpm_abs_4p9 File: C:/Users/laure_eqxylm1/Desktop/repos/FPGABird/prototype/db/lpm_abs_4p9.tdf Line: 22
 Info (13000): Registers with preset signals will power-up high File: C:/Users/laure_eqxylm1/Desktop/repos/FPGABird/prototype/mouse.vhd Line: 146
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "VGA_G[3]" is stuck at GND
+    Warning (13410): Pin "VGA_R[3]" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
@@ -1005,16 +1013,16 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 3 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
     Info: Must be connected
-Info (21057): Implemented 959 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 3 input pins
+Info (21057): Implemented 952 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
     Info (21059): Implemented 5 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 948 logic cells
+    Info (21061): Implemented 943 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 238 warnings
-    Info: Peak virtual memory: 4876 megabytes
-    Info: Processing ended: Wed May 03 16:48:05 2023
-    Info: Elapsed time: 00:00:27
-    Info: Total CPU time (on all processors): 00:00:50
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 243 warnings
+    Info: Peak virtual memory: 4874 megabytes
+    Info: Processing ended: Wed May 03 17:01:49 2023
+    Info: Elapsed time: 00:00:23
+    Info: Total CPU time (on all processors): 00:00:46
 
 
