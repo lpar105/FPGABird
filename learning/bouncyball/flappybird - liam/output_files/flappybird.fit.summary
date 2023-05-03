@@ -1,12 +1,12 @@
-Fitter Status : Successful - Wed May 03 18:42:57 2023
+Fitter Status : Successful - Wed May 03 19:33:34 2023
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 Revision Name : flappybird
 Top-level Entity Name : backgroundcolourchangeexample
 Family : Cyclone V
 Device : 5CEBA4F23C7
 Timing Models : Final
-Logic utilization (in ALMs) : 77 / 18,480 ( < 1 % )
-Total registers : 84
+Logic utilization (in ALMs) : 84 / 18,480 ( < 1 % )
+Total registers : 95
 Total pins : 8 / 224 ( 4 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 3,153,920 ( 0 % )
