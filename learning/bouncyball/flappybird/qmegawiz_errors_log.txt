@@ -1,0 +1,11 @@
+
+
+H:/Documents/flappybird/pll.vhd
+
+May 01 01PM:29:20>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+H:/Documents/flappybird/pll.vhd
+
+May 01 01PM:43:14>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
