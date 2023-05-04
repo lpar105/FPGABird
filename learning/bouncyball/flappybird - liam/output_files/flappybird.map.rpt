@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappybird
-Wed May 03 19:33:09 2023
+Thu May 04 13:08:57 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -47,7 +47,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed May 03 19:33:09 2023           ;
+; Analysis & Synthesis Status     ; Successful - Thu May 04 13:08:57 2023           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappybird                                      ;
 ; Top-level Entity Name           ; backgroundcolourchangeexample                   ;
@@ -159,15 +159,16 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 8           ;
+; Number detected on machine ; 6           ;
+; Maximum allowed            ; 6           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 8           ;
+; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-6         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -191,14 +192,14 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                              ;
 +---------------------------------------------+--------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 82                                                                 ;
+; Estimate of Logic utilization (ALMs needed) ; 95                                                                 ;
 ;                                             ;                                                                    ;
-; Combinational ALUT usage for logic          ; 137                                                                ;
+; Combinational ALUT usage for logic          ; 160                                                                ;
 ;     -- 7 input functions                    ; 1                                                                  ;
-;     -- 6 input functions                    ; 22                                                                 ;
-;     -- 5 input functions                    ; 28                                                                 ;
-;     -- 4 input functions                    ; 10                                                                 ;
-;     -- <=3 input functions                  ; 76                                                                 ;
+;     -- 6 input functions                    ; 26                                                                 ;
+;     -- 5 input functions                    ; 15                                                                 ;
+;     -- 4 input functions                    ; 9                                                                  ;
+;     -- <=3 input functions                  ; 109                                                                ;
 ;                                             ;                                                                    ;
 ; Dedicated logic registers                   ; 73                                                                 ;
 ;                                             ;                                                                    ;
@@ -211,8 +212,8 @@ refer to the applicable agreement for further details.
 ;                                             ;                                                                    ;
 ; Maximum fan-out node                        ; pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
 ; Maximum fan-out                             ; 56                                                                 ;
-; Total fan-out                               ; 694                                                                ;
-; Average fan-out                             ; 3.06                                                               ;
+; Total fan-out                               ; 709                                                                ;
+; Average fan-out                             ; 2.84                                                               ;
 +---------------------------------------------+--------------------------------------------------------------------+
 
 
@@ -221,10 +222,10 @@ refer to the applicable agreement for further details.
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------+-------------------------------+--------------+
 ; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                ; Entity Name                   ; Library Name ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------+-------------------------------+--------------+
-; |backgroundcolourchangeexample     ; 137 (0)             ; 73 (0)                    ; 0                 ; 0          ; 8    ; 0            ; |backgroundcolourchangeexample                                                     ; backgroundcolourchangeexample ; work         ;
+; |backgroundcolourchangeexample     ; 160 (1)             ; 73 (0)                    ; 0                 ; 0          ; 8    ; 0            ; |backgroundcolourchangeexample                                                     ; backgroundcolourchangeexample ; work         ;
 ;    |VGA_SYNC:inst|                 ; 41 (41)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|VGA_SYNC:inst                                       ; VGA_SYNC                      ; work         ;
 ;    |lfsr_7_plain:inst5|            ; 7 (7)               ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|lfsr_7_plain:inst5                                  ; lfsr_7_plain                  ; work         ;
-;    |pipe_function:inst99|          ; 89 (89)             ; 18 (18)                   ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|pipe_function:inst99                                ; pipe_function                 ; work         ;
+;    |pipe_function:inst99|          ; 111 (111)           ; 18 (18)                   ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|pipe_function:inst99                                ; pipe_function                 ; work         ;
 ;    |pll:inst2|                     ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|pll:inst2                                           ; pll                           ; pll          ;
 ;       |pll_0002:pll_inst|          ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|pll:inst2|pll_0002:pll_inst                         ; pll_0002                      ; pll          ;
 ;          |altera_pll:altera_pll_i| ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |backgroundcolourchangeexample|pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i ; altera_pll                    ; work         ;
@@ -249,7 +250,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; pipe_function:inst99|pipe_x_motion[1..9] ; Stuck at VCC due to stuck port data_in        ;
 ; pipe_function:inst99|pipe_x_motion[0]    ; Stuck at GND due to stuck port data_in        ;
 ; pipe_function:inst99|pipe_gap[7..9]      ; Merged with pipe_function:inst99|pipe_gap[10] ;
-; pipe_function:inst99|pipe_x_pos[0]       ; Stuck at GND due to stuck port data_in        ;
+; pipe_function:inst99|pipe_x_pos[0]       ; Stuck at VCC due to stuck port data_in        ;
 ; VGA_SYNC:inst|pixel_row[9]               ; Stuck at GND due to stuck port data_in        ;
 ; Total Number of Removed Registers = 15   ;                                               ;
 +------------------------------------------+-----------------------------------------------+
@@ -261,8 +262,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
 ; Total registers                              ; 73    ;
-; Number of registers using Synchronous Clear  ; 28    ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Synchronous Clear  ; 20    ;
+; Number of registers using Synchronous Load   ; 10    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 37    ;
@@ -275,9 +276,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
+; lfsr_7_plain:inst5|r_lfsr[1]           ; 3       ;
 ; lfsr_7_plain:inst5|r_lfsr[5]           ; 5       ;
 ; lfsr_7_plain:inst5|r_lfsr[3]           ; 7       ;
-; lfsr_7_plain:inst5|r_lfsr[1]           ; 3       ;
 ; Total number of inverted registers = 3 ;         ;
 +----------------------------------------+---------+
 
@@ -546,26 +547,29 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; arriav_ff             ; 73                          ;
 ;     ENA               ; 27                          ;
 ;     ENA SCLR          ; 10                          ;
-;     SCLR              ; 18                          ;
-;     plain             ; 18                          ;
-; arriav_lcell_comb     ; 137                         ;
-;     arith             ; 51                          ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 49                          ;
+;     SCLR              ; 10                          ;
+;     SLD               ; 10                          ;
+;     plain             ; 16                          ;
+; arriav_lcell_comb     ; 160                         ;
+;     arith             ; 89                          ;
+;         0 data inputs ; 3                           ;
+;         1 data inputs ; 85                          ;
+;         2 data inputs ; 1                           ;
 ;     extend            ; 1                           ;
 ;         7 data inputs ; 1                           ;
-;     normal            ; 85                          ;
+;     normal            ; 70                          ;
+;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 8                           ;
-;         2 data inputs ; 5                           ;
-;         3 data inputs ; 12                          ;
-;         4 data inputs ; 10                          ;
-;         5 data inputs ; 28                          ;
-;         6 data inputs ; 22                          ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 5                           ;
+;         4 data inputs ; 9                           ;
+;         5 data inputs ; 15                          ;
+;         6 data inputs ; 26                          ;
 ; boundary_port         ; 8                           ;
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 3.03                        ;
+; Max LUT depth         ; 8.90                        ;
+; Average LUT depth     ; 4.04                        ;
 +-----------------------+-----------------------------+
 
 
@@ -574,7 +578,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -584,10 +588,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Wed May 03 19:32:58 2023
+    Info: Processing started: Thu May 04 13:08:45 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappybird -c flappybird
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file /desktop/305 project/fpgabird/miniprojectresources/vga_sync.vhd
     Info (12022): Found design unit 1: VGA_SYNC-a File: H:/Desktop/305 Project/FPGABird/MiniprojectResources/vga_sync.vhd Line: 13
     Info (12023): Found entity 1: VGA_SYNC File: H:/Desktop/305 Project/FPGABird/MiniprojectResources/vga_sync.vhd Line: 7
@@ -919,15 +923,15 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 3 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
     Info: Must be connected
-Info (21057): Implemented 169 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 192 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 160 logic cells
+    Info (21061): Implemented 183 logic cells
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 233 warnings
-    Info: Peak virtual memory: 4893 megabytes
-    Info: Processing ended: Wed May 03 19:33:09 2023
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:17
+    Info: Peak virtual memory: 4870 megabytes
+    Info: Processing ended: Thu May 04 13:08:57 2023
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:18
 
 

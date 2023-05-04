@@ -30,9 +30,8 @@ pipe_height <= CONV_STD_LOGIC_VECTOR(480,11);
 pipe_width <= CONV_STD_LOGIC_VECTOR(30,10);
 
 
-
-pipe_on <= '1' when ( ('0' & pipe_x_pos <= '0' & pixel_column + pipe_width) and ('0' & pixel_column <= '0' & pipe_x_pos + pipe_width) 	-- x_pos - size <= pixel_column <= x_pos + size
-					and ('0' & pipe_y_pos <= pixel_row + pipe_height) and ('0' & pixel_row <= pipe_y_pos + pipe_height) and not(300 + pipe_gap > pixel_row AND pixel_row > 100 + pipe_gap) ) 
+pipe_on <= '1' when ( ('0' & (pipe_x_pos + 15) <= '0' & pixel_column + pipe_width) and ('0' & pixel_column <= '0' & (pipe_x_pos + 15) + pipe_width) 	-- x_pos - size <= pixel_column <= x_pos + size
+					and ('0' & pipe_y_pos <= pixel_row + pipe_height) and ('0' & pixel_row <= pipe_y_pos + pipe_height) and not(250 + pipe_gap > pixel_row AND pixel_row > 150 + pipe_gap) ) 
 					else '0';-- y_pos - size <= pixel_row <= y_pos + size
 			
 
@@ -48,9 +47,9 @@ Move_Pipe: process (vert_sync)
 begin
 	-- Move ball once every vertical sync
 	if (rising_edge(vert_sync)) then
-		if (pipe_x_pos < 10) then
+		if (pipe_x_pos + 30 < 0) then
 			pipe_gap <= "00000110010" + random_num;
-			pipe_x_pos <= CONV_STD_LOGIC_VECTOR(640,11);	
+			pipe_x_pos <= CONV_STD_LOGIC_VECTOR(640 + 15,11);	
 			pipe_x_motion <= - CONV_STD_LOGIC_VECTOR(2,10);
 		else	
 			pipe_x_motion <= - CONV_STD_LOGIC_VECTOR(2,10);
