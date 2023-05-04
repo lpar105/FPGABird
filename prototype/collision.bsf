@@ -93,6 +93,13 @@ refer to the applicable agreement for further details.
 		(text "blue" (rect 132 59 147 71)(font "Arial" ))
 		(line (pt 168 64)(pt 152 64)(line_width 1))
 	)
+	(port
+		(pt 168 80)
+		(output)
+		(text "hit" (rect 0 0 8 12)(font "Arial" ))
+		(text "hit" (rect 139 75 147 87)(font "Arial" ))
+		(line (pt 168 80)(pt 152 80)(line_width 1))
+	)
 	(drawing
 		(rectangle (rect 16 16 152 160)(line_width 1))
 	)
