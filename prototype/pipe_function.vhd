@@ -7,7 +7,7 @@ USE  IEEE.STD_LOGIC_SIGNED.all;
 
 ENTITY pipe_function IS
 	PORT
-		(clk, vert_sync	: IN std_logic;
+		(clk, vert_sync, gameOn	: IN std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
 			random_num: 		IN std_logic_vector(6 DOWNTO 0);
 		  red, green, blue, halfway 			: OUT std_logic);		

@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(5CEBA4F23) Path("H:/Documents/repos/FPGABird/learning/bouncyball/flappybird - liam/output_files/") File("flappybird.sof") MfrSpec(OpMask(1));
+		Device PartName(5CEBA4F23) Path("H:/Desktop/305 Project/FPGABird/learning/bouncyball/flappybird - liam/output_files/") File("flappybird.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
