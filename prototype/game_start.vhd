@@ -5,39 +5,29 @@ USE IEEE.STD_LOGIC_SIGNED.all;
 
 ENTITY game_start IS
     PORT (
-        pb1, sw0, sw1     : IN std_logic;
-        FinalGameMode     : OUT std_logic;
-        GameOn            : OUT std_logic
-    );
+        pb1, sw0     : IN std_logic;
+        FinalGameMode, GameOn     : OUT std_logic);
 END game_start;
 
 ARCHITECTURE start OF game_start IS
 
-    SIGNAL gameMode : std_logic;
-    -- 1 is training, 2 is game mode
+	 SIGNAL setGame : std_logic := '0';
+    SIGNAL gameMode : std_logic := '1';
+	 SIGNAL hideText	:	std_logic := '0';
 
-BEGIN           
+BEGIN
 
-
-    Set_Mode: PROCESS (sw0, sw1) 
+    -- output
+    process (pb1, sw0) 
     BEGIN
-        -- set to game mode
-        IF (rising_edge(sw0)) THEN
-            gameMode <= '0';
-        ELSIF (rising_edge(sw1) THEN
-				gameMode <= '1';
-        ELSE
-		  END IF;
-		  GameOn <= '0';
-    END PROCESS Set_Game;
-
-    Start_Game: PROCESS (pb1) 
-    BEGIN
-        -- finalize 
-        IF (rising_edge(pb1)) THEN
-            FinalGameMode <= gameMode;
-            GameOn <= '1';
-        END IF;
-    END PROCESS Start_Game;
+        if (falling_edge(pb1)) then
+            setGame <= '1';			
+		  end if;
+		  
+		  if (setGame = '0') then
+			FinalGameMode <= sw0;
+		  end if;
+		  GameOn <= setGame;
+    END PROCESS;
 
 END start;

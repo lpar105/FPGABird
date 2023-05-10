@@ -6,9 +6,11 @@ USE  IEEE.STD_LOGIC_SIGNED.all;
 
 ENTITY bird IS
 	PORT
-		( clk, vert_sync, left_click, gameOn	: IN std_logic;
+		( clk, vert_sync, left_click: IN std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic);		
+		  red, green, blue 			: OUT std_logic;
+		  turnOnBird		  : IN std_logic;
+		  FinalGameMode     : IN std_logic);		
 END bird;
 
 architecture flap of bird is
@@ -16,7 +18,7 @@ architecture flap of bird is
 SIGNAL bird_on					: std_logic;
 SIGNAL size 					: std_logic_vector(9 DOWNTO 0);  
 SIGNAL bird_y_pos				: std_logic_vector(9 DOWNTO 0);
-SiGNAL bird_x_pos				: std_logic_vector(10 DOWNTO 0);
+SIGNAL bird_x_pos				: std_logic_vector(10 DOWNTO 0);
 SIGNAL bird_y_motion			: std_logic_vector(9 DOWNTO 0);
 
 BEGIN           
@@ -26,13 +28,13 @@ size <= CONV_STD_LOGIC_VECTOR(8,10);
 bird_x_pos <= CONV_STD_LOGIC_VECTOR(320,11);
 
 bird_on <= '1' when ( ('0' & bird_x_pos <= '0' & pixel_column + size) and ('0' & pixel_column <= '0' & bird_x_pos + size) 	-- x_pos - size <= pixel_column <= x_pos + size
-					and ('0' & bird_y_pos <= pixel_row + size) and ('0' & pixel_row <= bird_y_pos + size) )  else	-- y_pos - size <= pixel_row <= y_pos + size
+					and ('0' & bird_y_pos <= pixel_row + size) and ('0' & pixel_row <= bird_y_pos + size) and (turnOnBird = '1'))  else	-- y_pos - size <= pixel_row <= y_pos + size
 			'0';
 
 
 -- Colours for pixel data on video signal
 -- Changing the background and bird
-Blue <= bird_on;
+blue <= bird_on;
 
 
 Move_Bird: process (vert_sync) 
