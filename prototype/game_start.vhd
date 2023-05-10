@@ -18,12 +18,13 @@ ARCHITECTURE start OF game_start IS
 
 BEGIN           
 
+
     Set_Mode: PROCESS (sw0, sw1) 
     BEGIN
         -- set to game mode
         IF (rising_edge(sw0)) THEN
             gameMode <= '0';
-        ELSEIF (rising_edge(sw1)
+        ELSIF (rising_edge(sw1) THEN
 				gameMode <= '1';
         ELSE
 		  END IF;
