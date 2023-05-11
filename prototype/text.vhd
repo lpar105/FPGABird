@@ -8,14 +8,10 @@ USE altera_mf.all;
 
 ENTITY text_setter IS
     PORT
-    (
-        character_address    :    OUT STD_LOGIC_VECTOR (5 DOWNTO 0);
-        pixel_row, pixel_col    :    IN STD_LOGIC_VECTOR (9 DOWNTO 4);
-        clock                :     IN STD_LOGIC ;
-        rom_mux_output        :    OUT STD_LOGIC;
-		  gameModeText		:	IN STD_LOGIC;
-		  gameOn : IN STD_LOGIC
-    );
+	 (pixel_row, pixel_col: in std_logic_vector(9 downto 4);
+		clk: in std_logic;
+		gameModeText : in std_logic;
+		character_address: out std_logic_vector(5 downto 0));
 END text_setter;
 
 architecture behave of text_setter is

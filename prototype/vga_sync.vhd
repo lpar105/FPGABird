@@ -5,9 +5,9 @@ use  IEEE.STD_LOGIC_ARITH.all;
 use  IEEE.STD_LOGIC_UNSIGNED.all;
 
 ENTITY VGA_SYNC IS
-	PORT(	clock_25Mhz, red, green, blue		: IN	STD_LOGIC;
-			red_out, green_out, blue_out, horiz_sync_out, vert_sync_out	: OUT	STD_LOGIC;
-			pixel_row, pixel_column: OUT STD_LOGIC_VECTOR(9 DOWNTO 0));
+	port(clk, red, green, blue: in std_logic;
+	red_out, green_out, blue_out, horiz_sync_out, vert_sync_out: out std_logic;
+	pixel_row, pixel_column: out std_logic_vector(9 downto 0));
 END VGA_SYNC;
 
 ARCHITECTURE a OF VGA_SYNC IS
@@ -24,7 +24,7 @@ video_on <= video_on_H AND video_on_V;
 
 PROCESS
 BEGIN
-	WAIT UNTIL(clock_25Mhz'EVENT) AND (clock_25Mhz='1');
+	WAIT UNTIL(clk'EVENT) AND (clk='1');
 
 --Generate Horizontal and Vertical Timing Signals for Video Signal
 -- H_count counts pixels (640 + extra time for sync signals)

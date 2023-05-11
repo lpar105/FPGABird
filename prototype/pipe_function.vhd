@@ -5,17 +5,15 @@ USE  IEEE.STD_LOGIC_SIGNED.all;
 
 
 
-ENTITY pipe_function IS
+ENTITY pipes IS
 	PORT
-		(clk, vert_sync:	 IN std_logic;
-          pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-			random_num: 		IN std_logic_vector(6 DOWNTO 0);
-		  red, green, blue, halfway 			: OUT std_logic;
-		FinalGameMode     : IN std_logic;
-      turnOnPipe	: IN std_logic);
-END pipe_function;
+		(clk, vert_sync, enable		: IN std_logic;
+       pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
+		 random_num						: IN std_logic_vector(6 DOWNTO 0);
+		 red, green, blue, halfway : OUT std_logic);		
+END pipes;
 
-architecture behavior of pipe_function is
+architecture behavior of pipes is
 
 SIGNAL pipe_on					: std_logic;
 SIGNAL pipe_height 			: std_logic_vector(10 DOWNTO 0);  
@@ -33,7 +31,7 @@ pipe_width <= CONV_STD_LOGIC_VECTOR(30,10);
 
 
 pipe_on <= '1' when ( ('0' & (pipe_x_pos + 15) <= '0' & pixel_column + pipe_width) and ('0' & pixel_column <= '0' & (pipe_x_pos + 15) + pipe_width) 	-- x_pos - size <= pixel_column <= x_pos + size
-					and ('0' & pipe_y_pos <= pixel_row + pipe_height) and ('0' & pixel_row <= pipe_y_pos + pipe_height) and not(350 + pipe_gap > pixel_row AND pixel_row > 50 + pipe_gap) and (turnOnPipe = '1'))
+					and ('0' & pipe_y_pos <= pixel_row + pipe_height) and ('0' & pixel_row <= pipe_y_pos + pipe_height) and not(350 + pipe_gap > pixel_row AND pixel_row > 50 + pipe_gap) and (enable = '1'))
 					else '0';-- y_pos - size <= pixel_row <= y_pos + size
 					
 --halfway <= '1' when (pipe_x_pos < 280 AND pipe_x_pos > 250) else '0';

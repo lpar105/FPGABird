@@ -13,7 +13,6 @@ ARCHITECTURE start OF game_start IS
 
 	 SIGNAL setGame : std_logic := '0';
     SIGNAL gameMode : std_logic := '1';
-	 SIGNAL hideText	:	std_logic := '0';
 
 BEGIN
 

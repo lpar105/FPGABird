@@ -68,15 +68,15 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 128)
 		(input)
-		(text "score[9..0]" (rect 0 0 42 12)(font "Arial" ))
-		(text "score[9..0]" (rect 21 123 63 135)(font "Arial" ))
+		(text "score[3..0]" (rect 0 0 42 12)(font "Arial" ))
+		(text "score[3..0]" (rect 21 123 63 135)(font "Arial" ))
 		(line (pt 0 128)(pt 16 128)(line_width 3))
 	)
 	(port
 		(pt 0 144)
 		(input)
-		(text "lives[9..0]" (rect 0 0 37 12)(font "Arial" ))
-		(text "lives[9..0]" (rect 21 139 58 151)(font "Arial" ))
+		(text "lives[3..0]" (rect 0 0 37 12)(font "Arial" ))
+		(text "lives[3..0]" (rect 21 139 58 151)(font "Arial" ))
 		(line (pt 0 144)(pt 16 144)(line_width 3))
 	)
 	(port
@@ -96,8 +96,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 208 48)
 		(output)
-		(text "mode[2..0]" (rect 0 0 42 12)(font "Arial" ))
-		(text "mode[2..0]" (rect 145 43 187 55)(font "Arial" ))
+		(text "mode[1..0]" (rect 0 0 41 12)(font "Arial" ))
+		(text "mode[1..0]" (rect 146 43 187 55)(font "Arial" ))
 		(line (pt 208 48)(pt 192 48)(line_width 3))
 	)
 	(drawing

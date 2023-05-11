@@ -4,16 +4,14 @@ USE  IEEE.STD_LOGIC_ARITH.all;
 USE  IEEE.STD_LOGIC_SIGNED.all;
 
 
-ENTITY bird IS
+ENTITY Mario IS
 	PORT
-		( clk, vert_sync, left_click: IN std_logic;
-          pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic;
-		  turnOnBird		  : IN std_logic;
-		  FinalGameMode     : IN std_logic);		
-END bird;
+		( clk, vert_sync, left_click, enable	: IN std_logic;
+        pixel_row, pixel_column					: IN std_logic_vector(9 DOWNTO 0);
+		  red, green, blue 							: OUT std_logic);		
+END Mario;
 
-architecture flap of bird is
+architecture flap of Mario is
 
 SIGNAL bird_on					: std_logic;
 SIGNAL size 					: std_logic_vector(9 DOWNTO 0);  
@@ -28,7 +26,7 @@ size <= CONV_STD_LOGIC_VECTOR(8,10);
 bird_x_pos <= CONV_STD_LOGIC_VECTOR(320,11);
 
 bird_on <= '1' when ( ('0' & bird_x_pos <= '0' & pixel_column + size) and ('0' & pixel_column <= '0' & bird_x_pos + size) 	-- x_pos - size <= pixel_column <= x_pos + size
-					and ('0' & bird_y_pos <= pixel_row + size) and ('0' & pixel_row <= bird_y_pos + size) and (turnOnBird = '1'))  else	-- y_pos - size <= pixel_row <= y_pos + size
+					and ('0' & bird_y_pos <= pixel_row + size) and ('0' & pixel_row <= bird_y_pos + size) and (enable = '1'))  else	-- y_pos - size <= pixel_row <= y_pos + size
 			'0';
 
 
@@ -37,7 +35,7 @@ bird_on <= '1' when ( ('0' & bird_x_pos <= '0' & pixel_column + size) and ('0' &
 blue <= bird_on;
 
 
-Move_Bird: process (vert_sync) 
+Move_Mario: process (vert_sync) 
 variable prev_click_status: std_logic := '0';
 variable velocity: integer := 150;
 variable thrust: integer := 0;	
@@ -71,7 +69,7 @@ begin
 			prev_click_status := '0';
 		end if;
 	end if;
-end process Move_Bird;
+end process Move_Mario;
 
 END flap;
 
