@@ -9,7 +9,7 @@ ENTITY state_handler IS
 		score, lives : IN std_logic_vector(9 DOWNTO 0);
 		last_mode : IN std_logic_vector(2 downto 0);
 		enable : OUT std_logic;
-		mode : OUT std_logic_vector(1 downto 0)
+		mode : OUT std_logic_vector(2 downto 0)
 	);
 END state_handler;
 
@@ -17,7 +17,7 @@ ARCHITECTURE flap OF state_handler IS
 	SIGNAL setGame : std_logic := '0';
 BEGIN
 	-- output
-	process (start, sw)
+	process (start, sw, setGame)
 	BEGIN
 		if (falling_edge(start)) then
 			setGame <= '1';
@@ -25,9 +25,9 @@ BEGIN
 		
 		if (setGame = '0') then
 			if (sw = '0') then
-				mode <= "00"; --training
+				mode <= "000"; --training
 			else
-				mode <= "01"; --game mode
+				mode <= "001"; --game mode
 			end if;
 		end if;
 		enable <= setGame;

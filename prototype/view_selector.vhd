@@ -12,9 +12,10 @@ ENTITY view_selector IS
 END view_selector;
 
 
-architecture flap of view_selector is
+architecture views of view_selector is
 begin
-
-
-END flap;
+	red <= text_in;
+	green <= green_game;
+	blue <= blue_game;
+END views;
 
