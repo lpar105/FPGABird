@@ -2087,28 +2087,6 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
-<<<<<<< Updated upstream
-	(text "game_mode[2..0]" (rect 864 1312 947 1329)(font "Intel Clear" ))
-	(pt 864 1328)
-	(pt 928 1328)
-	(bus)
-)
-(connector
-<<<<<<< Updated upstream
-=======
-	(pt 952 768)
-	(pt 880 768)
-	(bus)
-)
-(connector
-	(pt 880 768)
-	(pt 880 808)
-	(bus)
-)
-(connector
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 	(text "game_mode[2..0]" (rect 832 792 915 809)(font "Intel Clear" ))
 	(pt 880 808)
 	(pt 832 808)
@@ -2144,11 +2122,6 @@ refer to the applicable agreement for further details.
 	(pt 1840 1176)
 	(bus)
 )
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
 (connector
 	(text "game_mode[2..0]" (rect 1944 880 2027 897)(font "Intel Clear" ))
 	(pt 1944 896)
@@ -2228,20 +2201,20 @@ refer to the applicable agreement for further details.
 	(pt 960 568)
 	(pt 920 568)
 )
-<<<<<<< Updated upstream
-(junction (pt 744 752))
-=======
 (connector
-	(text "game_mode[2..0]" (rect 848 1328 931 1345)(font "Intel Clear" ))
+	(text "game_mode[2..0]" (rect 856 1328 939 1345)(font "Intel Clear" ))
 	(pt 928 1344)
-	(pt 848 1344)
+	(pt 856 1344)
 	(bus)
 )
 (connector
-	(text "disable" (rect 874 1312 908 1329)(font "Intel Clear" ))
+	(text "disable" (rect 890 1312 924 1329)(font "Intel Clear" ))
 	(pt 928 1328)
-	(pt 864 1328)
+	(pt 880 1328)
+)
+(connector
+	(pt 952 752)
+	(pt 904 752)
+	(bus)
 )
 (junction (pt 744 752))
->>>>>>> Stashed changes
->>>>>>> Stashed changes
