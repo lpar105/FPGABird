@@ -20,7 +20,7 @@ begin
     process (pixel_col, pixel_row, gameModeText) 
     begin
         if (gameModeText = "000") then -- Training mode
-            if(pixel_row = "00100") then
+            if(pixel_row = "00010") then
                 if (pixel_col ="00010") then
                     character_address <= "010100"; -- T
                 elsif (pixel_col ="00011") then
@@ -37,14 +37,23 @@ begin
                     character_address <= "001110"; -- N
                 elsif (pixel_col ="01001") then
                     character_address <= "000111"; -- G
+						  
+					 elsif (pixel_col ="01011") then
+                    character_address <= "001101"; -- M
+                elsif (pixel_col ="01100") then
+                    character_address <= "001111"; -- O
+                elsif (pixel_col ="01101") then
+                    character_address <= "000100"; -- D
+                elsif (pixel_col ="01110") then
+                    character_address <= "000101"; -- E
                 else
                     character_address <= "100000"; -- blank space
                 end if;
             else 
                 character_address <= "100000"; -- blank space
             end if;
-        else -- Game mode
-            if(pixel_row= "00100") then
+        elsif (gameModeText = "001") then -- Level 1
+            if(pixel_row= "00010") then
                 if (pixel_col ="00010") then
                     character_address <= "000111"; -- G
                 elsif (pixel_col ="00011") then
@@ -61,12 +70,107 @@ begin
                     character_address <= "000100"; -- D
                 elsif (pixel_col ="01010") then
                     character_address <= "000101"; -- E
+						  
+						  
+					 elsif (pixel_col ="10000") then
+                    character_address <= "001100"; -- L
+                elsif (pixel_col ="10001") then
+                    character_address <= "000101"; -- E
+                elsif (pixel_col ="10010") then
+                    character_address <= "010110"; -- V
+                elsif (pixel_col ="10011") then
+                    character_address <= "000101"; -- E
+                elsif (pixel_col ="10100") then
+                    character_address <= "001100"; -- L
+                elsif (pixel_col ="10110") then
+                    character_address <= "110001"; -- 1
                 else
                     character_address <= "100000"; -- blank space
                 end if;
             else 
                 character_address <= "100000"; -- blank space
             end if;
+			----------------------------------------------------------	
+			elsif (gameModeText = "010") then -- Level 2
+            if(pixel_row= "00010") then
+                if (pixel_col ="00010") then
+                    character_address <= "000111"; -- G
+                elsif (pixel_col ="00011") then
+                    character_address <= "000001"; -- A
+                elsif (pixel_col ="00100") then
+                    character_address <= "001101"; -- M
+                elsif (pixel_col ="00101") then
+                    character_address <= "000101"; -- E
+                elsif (pixel_col ="00111") then
+                    character_address <= "001101"; -- M
+                elsif (pixel_col ="01000") then
+                    character_address <= "001111"; -- O
+                elsif (pixel_col ="01001") then
+                    character_address <= "000100"; -- D
+                elsif (pixel_col ="01010") then
+                    character_address <= "000101"; -- E
+						  
+						  
+					 elsif (pixel_col ="10000") then
+                    character_address <= "001100"; -- L
+                elsif (pixel_col ="10001") then
+                    character_address <= "000101"; -- E
+                elsif (pixel_col ="10010") then
+                    character_address <= "010110"; -- V
+                elsif (pixel_col ="10011") then
+                    character_address <= "000101"; -- E
+                elsif (pixel_col ="10100") then
+                    character_address <= "001100"; -- L
+                elsif (pixel_col ="10110") then
+                    character_address <= "110010"; -- 2
+                else
+                    character_address <= "100000"; -- blank space
+                end if;
+            else 
+                character_address <= "100000"; -- blank space
+            end if;
+			--------------------------------------------------------------	
+			else
+            if(pixel_row= "00010") then
+                if (pixel_col ="00010") then
+                    character_address <= "000111"; -- G
+                elsif (pixel_col ="00011") then
+                    character_address <= "000001"; -- A
+                elsif (pixel_col ="00100") then
+                    character_address <= "001101"; -- M
+                elsif (pixel_col ="00101") then
+                    character_address <= "000101"; -- E
+                elsif (pixel_col ="00111") then
+                    character_address <= "001101"; -- M
+                elsif (pixel_col ="01000") then
+                    character_address <= "001111"; -- O
+                elsif (pixel_col ="01001") then
+                    character_address <= "000100"; -- D
+                elsif (pixel_col ="01010") then
+                    character_address <= "000101"; -- E
+						  
+						  
+					 elsif (pixel_col ="10000") then
+                    character_address <= "001100"; -- L
+                elsif (pixel_col ="10001") then
+                    character_address <= "000101"; -- E
+                elsif (pixel_col ="10010") then
+                    character_address <= "001010"; -- V
+                elsif (pixel_col ="10011") then
+                    character_address <= "000101"; -- E
+                elsif (pixel_col ="10100") then
+                    character_address <= "001100"; -- L
+                elsif (pixel_col ="10110") then
+                    character_address <= "110011"; -- 3
+                else
+                    character_address <= "100000"; -- blank space
+                end if;
+            else 
+                character_address <= "100000"; -- blank space
+            end if;
+				
+				
+				
         end if;
 	
     end process;
