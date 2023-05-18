@@ -7,12 +7,12 @@ USE  IEEE.STD_LOGIC_SIGNED.all;
 
 ENTITY pipes IS
 	PORT
-		(clk, vert_sync, enable		: IN std_logic;
-       pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-		 random_num1						: IN std_logic_vector(6 DOWNTO 0);
-		 random_num2						: IN std_logic_vector(6 DOWNTO 0);
-		 game_mode							: IN std_logic_vector(2 DOWNTO 0);
-		 red, green, blue, halfway : OUT std_logic);		
+		(clk, vert_sync, enable, disable		: IN std_logic;
+       pixel_row, pixel_column				: IN std_logic_vector(9 DOWNTO 0);
+		 random_num1								: IN std_logic_vector(6 DOWNTO 0);
+		 random_num2								: IN std_logic_vector(6 DOWNTO 0);
+		 game_mode									: IN std_logic_vector(2 DOWNTO 0);
+		 red, green, blue, halfway 			: OUT std_logic);		
 END pipes;
 
 architecture behavior of pipes is
@@ -57,7 +57,7 @@ Green <= pipe1_on or pipe2_on;
 Move_Pipe: process (vert_sync)
 variable speed: integer := 2;
 begin
-	-- Move ball once every vertical sync
+	-- Move pipes to the left once every vertical sync
 	if (rising_edge(vert_sync)) then
 	
 		if (game_mode = "010") then
@@ -67,8 +67,10 @@ begin
 		else
 			speed := 3;
 		end if;
-					
-		if (pipe1_x_pos < 0) then				
+		
+		if (disable = '1') then
+			NULL;
+		elsif (pipe1_x_pos < 0) then				
 			pipe2_x_pos <= CONV_STD_LOGIC_VECTOR(320,11);
 			pipe1_x_pos <= CONV_STD_LOGIC_VECTOR(640,11);
 			pipe1_gap <= "00000010010" + random_num1;			

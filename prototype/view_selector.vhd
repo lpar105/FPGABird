@@ -17,5 +17,6 @@ begin
 	red <= text_in;
 	green <= green_game;
 	blue <= blue_game;
+	
 END views;
 

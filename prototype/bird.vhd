@@ -6,7 +6,7 @@ USE  IEEE.STD_LOGIC_SIGNED.all;
 
 ENTITY Mario IS
 	PORT
-		( clk, vert_sync, left_click, enable	: IN std_logic;
+		( clk, vert_sync, left_click, enable, disable	: IN std_logic;
         pixel_row, pixel_column					: IN std_logic_vector(9 DOWNTO 0);
 		  red, green, blue 							: OUT std_logic);		
 END Mario;
@@ -50,7 +50,9 @@ begin
 		end if;
 		
 		-- Set motion
-		if(left_click = '1' and prev_click_status = '0') then
+		if (disable = '1') then
+			bird_y_motion <= CONV_STD_LOGIC_VECTOR(0,10);
+		elsif(left_click = '1' and prev_click_status = '0') then
 			velocity := 150;
 			thrust := 150;
 			bird_y_motion <= - CONV_STD_LOGIC_VECTOR(0,10);
