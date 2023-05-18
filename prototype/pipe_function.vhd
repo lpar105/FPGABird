@@ -37,11 +37,11 @@ pipe_width <= CONV_STD_LOGIC_VECTOR(30,10);
 
 
 pipe1_on <= '1' when ( ('0' & (pipe1_x_pos + 15) <= '0' & pixel_column + pipe_width) and ('0' & pixel_column <= '0' & (pipe1_x_pos + 15) + pipe_width) 	-- x_pos - size <= pixel_column <= x_pos + size
-					and ('0' & pipe1_y_pos <= pixel_row + pipe_height) and ('0' & pixel_row <= pipe1_y_pos + pipe_height) and not(350 + pipe1_gap > pixel_row AND pixel_row > 50 + pipe1_gap) and (enable = '1'))
+					and ('0' & pipe1_y_pos <= pixel_row + pipe_height) and ('0' & pixel_row <= pipe1_y_pos + pipe_height) and not(350 + pipe1_gap > pixel_row AND pixel_row > 50 + pipe1_gap) and (pipe1_y_pos > 60) and (enable = '1'))
 					else '0';-- y_pos - size <= pixel_row <= y_pos + size
 					
 pipe2_on <= '1' when ( ('0' & (pipe2_x_pos + 15) <= '0' & pixel_column + pipe_width) and ('0' & pixel_column <= '0' & (pipe2_x_pos + 15) + pipe_width) 	-- x_pos - size <= pixel_column <= x_pos + size
-					and ('0' & pipe2_y_pos <= pixel_row + pipe_height) and ('0' & pixel_row <= pipe2_y_pos + pipe_height) and not(350 + pipe2_gap > pixel_row AND pixel_row > 50 + pipe2_gap) and (enable = '1'))
+					and ('0' & pipe2_y_pos <= pixel_row + pipe_height) and ('0' & pixel_row <= pipe2_y_pos + pipe_height) and not(350 + pipe2_gap > pixel_row AND pixel_row > 50 + pipe2_gap) and (pipe2_y_pos > 60) and (enable = '1'))
 					else '0';-- y_pos - size <= pixel_row <= y_pos + size
 					
 --halfway <= '1' when (pipe_x_pos < 280 AND pipe_x_pos > 250) else '0';
@@ -57,17 +57,16 @@ Move_Pipe: process (vert_sync)
 begin
 	-- Move ball once every vertical sync
 	if (rising_edge(vert_sync)) then
-		if (pipe1_x_pos < 2) then				
+		if (pipe1_x_pos < 0) then				
 			pipe2_x_pos <= CONV_STD_LOGIC_VECTOR(320,11);
 			pipe1_x_pos <= CONV_STD_LOGIC_VECTOR(640,11);
-			pipe2_gap <= "00000110010" + random_num2;	
+			pipe1_gap <= "00000110010" + random_num1;			
 			pipe_x_motion <= - CONV_STD_LOGIC_VECTOR(2,10);
 			halfway <= '1';
-		end if;
-		if (pipe2_x_pos < 0) then		
+		elsif (pipe2_x_pos < 0) then		
 			pipe1_x_pos <= CONV_STD_LOGIC_VECTOR(320,11);
 			pipe2_x_pos <= CONV_STD_LOGIC_VECTOR(640,11);
-			pipe1_gap <= "00000110010" + random_num1;		
+			pipe2_gap <= "00000110010" + random_num2;	
 			pipe_x_motion <= - CONV_STD_LOGIC_VECTOR(2,10);
 			halfway <= '1';
 		else	
