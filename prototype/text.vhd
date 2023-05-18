@@ -9,16 +9,18 @@ USE altera_mf.all;
 ENTITY text_setter IS
     PORT
 	 (pixel_row, pixel_col: in std_logic_vector(9 downto 4);
-		clk: in std_logic;
+		clk, disable: in std_logic;
 		gameModeText : in std_logic_vector(2 downto 0);
 		character_address: out std_logic_vector(5 downto 0));
 END text_setter;
 
 architecture behave of text_setter is
 begin
+		
 
-    process (pixel_col, pixel_row, gameModeText) 
+    process (pixel_col, pixel_row, gameModeText, disable) 
     begin
+		
         if (gameModeText = "000") then -- Training mode
             if(pixel_row = "00010") then
                 if (pixel_col ="00010") then
@@ -169,9 +171,27 @@ begin
                 character_address <= "100000"; -- blank space
             end if;
 				
-				
-				
         end if;
+		  
+		  if (disable = '1') then
+				if (pixel_row = "01101") then
+                if (pixel_col ="10001") then
+                    character_address <= "010000"; -- P
+                elsif (pixel_col ="10010") then
+                    character_address <= "000001"; -- A
+                elsif (pixel_col ="10011") then
+                    character_address <= "010101"; -- U
+                elsif (pixel_col ="10100") then
+                    character_address <= "010011"; -- S
+                elsif (pixel_col ="10101") then
+                    character_address <= "000101"; -- E
+                elsif (pixel_col ="10110") then
+                    character_address <= "000100"; -- D
+					end if;
+					
+				end if;
+			end if;
+				
 	
     end process;
 

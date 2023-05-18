@@ -21,7 +21,6 @@ BEGIN
 video_on <= video_on_H AND video_on_V;
 
 
-
 PROCESS
 BEGIN
 	WAIT UNTIL(clk'EVENT) AND (clk='1');

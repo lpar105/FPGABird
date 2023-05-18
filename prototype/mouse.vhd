@@ -1,5 +1,5 @@
 -----
---Pong game 2018
+-- MOUSE VHD FILE
 -----
 LIBRARY IEEE;
 USE  IEEE.STD_LOGIC_1164.all;
@@ -20,25 +20,25 @@ ARCHITECTURE behavior OF MOUSE IS
 TYPE STATE_TYPE IS (INHIBIT_TRANS, LOAD_COMMAND,LOAD_COMMAND2, WAIT_OUTPUT_READY,
 					WAIT_CMD_ACK, INPUT_PACKETS);
 -- Signals for Mouse
-SIGNAL mouse_state							: state_type;
-SIGNAL inhibit_wait_count					: std_logic_vector(11 DOWNTO 0);
-SIGNAL CHARIN, CHAROUT						: std_logic_vector(7 DOWNTO 0);
+SIGNAL mouse_state								: state_type;
+SIGNAL inhibit_wait_count						: std_logic_vector(11 DOWNTO 0);
+SIGNAL CHARIN, CHAROUT							: std_logic_vector(7 DOWNTO 0);
 SIGNAL new_cursor_row, new_cursor_column 	: std_logic_vector(9 DOWNTO 0);
 SIGNAL cursor_row, cursor_column 			: std_logic_vector(9 DOWNTO 0);
 SIGNAL INCNT, OUTCNT, mSB_OUT 				: std_logic_vector(3 DOWNTO 0);
-SIGNAL PACKET_COUNT 						: std_logic_vector(1 DOWNTO 0);
-SIGNAL SHIFTIN 								: std_logic_vector(8 DOWNTO 0);
-SIGNAL SHIFTOUT 							: std_logic_vector(10 DOWNTO 0);
+SIGNAL PACKET_COUNT 								: std_logic_vector(1 DOWNTO 0);
+SIGNAL SHIFTIN 									: std_logic_vector(8 DOWNTO 0);
+SIGNAL SHIFTOUT 									: std_logic_vector(10 DOWNTO 0);
 SIGNAL PACKET_CHAR1, PACKET_CHAR2, 
-		PACKET_CHAR3 						: std_logic_vector(7 DOWNTO 0); 
+		PACKET_CHAR3 								: std_logic_vector(7 DOWNTO 0); 
 SIGNAL MOUSE_CLK_BUF, DATA_READY, READ_CHAR	: std_logic;
-SIGNAL i									: integer;
+SIGNAL i												: integer;
 SIGNAL cursor, iready_set, break, toggle_next, 
 		output_ready, send_char, send_data 	: std_logic;
 SIGNAL MOUSE_DATA_DIR, MOUSE_DATA_OUT, MOUSE_DATA_BUF, 
-		MOUSE_CLK_DIR 						: std_logic;
-SIGNAL MOUSE_CLK_FILTER 					: std_logic;
-SIGNAL filter 								: std_logic_vector(7 DOWNTO 0);
+		MOUSE_CLK_DIR 								: std_logic;
+SIGNAL MOUSE_CLK_FILTER 						: std_logic;
+SIGNAL filter 										: std_logic_vector(7 DOWNTO 0);
 
 
 BEGIN
@@ -170,9 +170,9 @@ IF MOUSE_DATA_DIR='1' THEN
          OUTCNT <= OUTCNT + 1;
 		-- Shift out next bit to mouse
          SHIFTOUT(9 DOWNTO 0) <= SHIFTOUT(10 DOWNTO 1);
-		 SHIFTOUT(10) <= '1';
+			SHIFTOUT(10) <= '1';
          MOUSE_DATA_BUF <= SHIFTOUT(1);
-		 OUTPUT_READY <= '0';
+			OUTPUT_READY <= '0';
 		-- END OF CHARACTER
 	 ELSE
      	SEND_CHAR <= '0';
