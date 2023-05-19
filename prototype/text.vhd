@@ -11,16 +11,34 @@ ENTITY text_setter IS
 	 (pixel_row, pixel_col: in std_logic_vector(9 downto 4);
 		clk, disable: in std_logic;
 		gameModeText : in std_logic_vector(2 downto 0);
+		lives: in Std_logic_vector(2 downto 0);
 		character_address: out std_logic_vector(5 downto 0));
 END text_setter;
 
 architecture behave of text_setter is
+SIGNAL liveText: std_logic_vector(5 downto 0);
 begin
 		
 
-    process (pixel_col, pixel_row, gameModeText, disable) 
+    process (pixel_col, pixel_row, gameModeText, disable, lives) 
     begin
+	 
+			
+		   if (lives = "101") then
+				liveText <= "110101"; --5
+			elsif (lives = "100") then
+				liveText <= "110100"; --4
+			elsif (lives = "011") then
+				liveText <= "110011"; --3
+			elsif (lives = "010") then
+				liveText <= "110010"; --2
+			elsif (lives = "001") then
+				liveText <= "110001"; --1
+			else
+				liveText <= "110001"; --0
+			end if;
 		
+			
         if (gameModeText = "000") then -- Training mode
             if(pixel_row = "00010") then
                 if (pixel_col ="00010") then
@@ -53,7 +71,8 @@ begin
                 end if;
             else 
                 character_address <= "100000"; -- blank space
-            end if;
+              end if;
+			------------------------------------------------------
         elsif (gameModeText = "001") then -- Level 1
             if(pixel_row= "00010") then
                 if (pixel_col ="00010") then
@@ -86,6 +105,21 @@ begin
                     character_address <= "001100"; -- L
                 elsif (pixel_col ="10110") then
                     character_address <= "110001"; -- 1
+						  
+					 elsif (pixel_col ="11000") then
+                    character_address <= "001100"; -- L
+                elsif (pixel_col ="11001") then
+                    character_address <= "001001"; -- I
+                elsif (pixel_col ="11010") then
+                    character_address <= "010110"; -- V
+                elsif (pixel_col ="11011") then
+                    character_address <= "000101"; -- E
+					 elsif (pixel_col ="11100") then
+                    character_address <= "010011"; -- S
+					 elsif (pixel_col ="11101") then
+                    character_address <= "110111"; -- -
+					 elsif (pixel_col ="11111") then
+                    character_address <= liveText; -- ???????
                 else
                     character_address <= "100000"; -- blank space
                 end if;
@@ -125,6 +159,22 @@ begin
                     character_address <= "001100"; -- L
                 elsif (pixel_col ="10110") then
                     character_address <= "110010"; -- 2
+						  
+					 elsif (pixel_col ="11000") then
+                    character_address <= "001100"; -- L
+                elsif (pixel_col ="11001") then
+                    character_address <= "001001"; -- I
+                elsif (pixel_col ="11010") then
+                    character_address <= "010110"; -- V
+                elsif (pixel_col ="11011") then
+                    character_address <= "000101"; -- E
+					 elsif (pixel_col ="11100") then
+                    character_address <= "010011"; -- S
+					 elsif (pixel_col ="11101") then
+                    character_address <= "110111"; -- -
+					 elsif (pixel_col ="11111") then
+                    character_address <= liveText; -- ???????
+					
                 else
                     character_address <= "100000"; -- blank space
                 end if;
@@ -164,6 +214,22 @@ begin
                     character_address <= "001100"; -- L
                 elsif (pixel_col ="10110") then
                     character_address <= "110011"; -- 3
+						  
+					 elsif (pixel_col ="11000") then
+                    character_address <= "001100"; -- L
+                elsif (pixel_col ="11001") then
+                    character_address <= "001001"; -- I
+                elsif (pixel_col ="11010") then
+                    character_address <= "010110"; -- V
+                elsif (pixel_col ="11011") then
+                    character_address <= "000101"; -- E
+					 elsif (pixel_col ="11100") then
+                    character_address <= "010011"; -- S
+					 elsif (pixel_col ="11101") then
+                    character_address <= "110111"; -- -
+					 elsif (pixel_col ="11111") then
+                    character_address <= liveText; -- ???????
+						  
                 else
                     character_address <= "100000"; -- blank space
                 end if;
@@ -191,7 +257,6 @@ begin
 					
 				end if;
 			end if;
-				
 	
     end process;
 

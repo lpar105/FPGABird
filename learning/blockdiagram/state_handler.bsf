@@ -75,8 +75,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 144)
 		(input)
-		(text "lives[9..0]" (rect 0 0 37 12)(font "Arial" ))
-		(text "lives[9..0]" (rect 21 139 58 151)(font "Arial" ))
+		(text "lives[2..0]" (rect 0 0 37 12)(font "Arial" ))
+		(text "lives[2..0]" (rect 21 139 58 151)(font "Arial" ))
 		(line (pt 0 144)(pt 16 144)(line_width 3))
 	)
 	(port

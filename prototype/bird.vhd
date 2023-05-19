@@ -56,7 +56,7 @@ begin
 			velocity := 150;
 			thrust := 150;
 			bird_y_motion <= - CONV_STD_LOGIC_VECTOR(0,10);
-		elsif (bird_y_pos < 470 or thrust > 0) then
+		elsif ((bird_y_pos < 470 or thrust > 0) then
 			velocity := velocity + 20 - thrust;
 			bird_y_motion <= CONV_STD_LOGIC_VECTOR(velocity/100,10);
 		else
