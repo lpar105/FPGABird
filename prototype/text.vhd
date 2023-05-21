@@ -8,7 +8,8 @@ USE altera_mf.all;
 
 ENTITY text_setter IS
     PORT
-	 (pixel_row, pixel_col: in std_logic_vector(9 downto 4);
+	 (pixel_col: in std_logic_vector(9 downto 4);
+	  pixel_row: in std_logic_vector(9 downto 4);
 		clk, disable: in std_logic;
 		gameModeText : in std_logic_vector(2 downto 0);
 		lives: in Std_logic_vector(2 downto 0);

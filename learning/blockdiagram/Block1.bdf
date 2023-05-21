@@ -1262,21 +1262,21 @@ refer to the applicable agreement for further details.
 		(pt 208 32)
 		(output)
 		(text "enable" (rect 0 0 31 12)(font "Arial" ))
-		(text "enable" (rect 161 27 187 39)(font "Arial" ))
+		(text "enable" (rect 161 27 192 39)(font "Arial" ))
 		(line (pt 208 32)(pt 192 32))
 	)
 	(port
 		(pt 208 48)
 		(output)
 		(text "disable" (rect 0 0 34 12)(font "Arial" ))
-		(text "disable" (rect 159 43 187 55)(font "Arial" ))
+		(text "disable" (rect 159 43 193 55)(font "Arial" ))
 		(line (pt 208 48)(pt 192 48))
 	)
 	(port
 		(pt 208 64)
 		(output)
 		(text "mode[2..0]" (rect 0 0 53 12)(font "Arial" ))
-		(text "mode[2..0]" (rect 143 59 187 71)(font "Arial" ))
+		(text "mode[2..0]" (rect 143 59 196 71)(font "Arial" ))
 		(line (pt 208 64)(pt 192 64)(line_width 3))
 	)
 	(drawing
@@ -1333,7 +1333,7 @@ refer to the applicable agreement for further details.
 		(pt 280 32)
 		(output)
 		(text "character_address[5..0]" (rect 0 0 116 12)(font "Arial" ))
-		(text "character_address[5..0]" (rect 161 27 259 39)(font "Arial" ))
+		(text "character_address[5..0]" (rect 161 27 277 39)(font "Arial" ))
 		(line (pt 280 32)(pt 264 32)(line_width 3))
 	)
 	(drawing
@@ -1466,9 +1466,9 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 304)
 		(input)
-		(text "gameMode[2..0]" (rect 0 0 79 12)(font "Arial" ))
-		(text "gameMode[2..0]" (rect 21 299 100 311)(font "Arial" ))
-		(line (pt 0 304)(pt 16 304)(line_width 3))
+		(text "hitTrigger" (rect 0 0 44 12)(font "Arial" ))
+		(text "hitTrigger" (rect 21 299 65 311)(font "Arial" ))
+		(line (pt 0 304)(pt 16 304))
 	)
 	(port
 		(pt 208 32)
@@ -1970,20 +1970,8 @@ refer to the applicable agreement for further details.
 	(pt 1208 1144)
 )
 (connector
-	(pt 1472 696)
-	(pt 1472 1168)
-)
-(connector
-	(pt 1472 1168)
-	(pt 1640 1168)
-)
-(connector
 	(pt 1640 1160)
 	(pt 1640 1168)
-)
-(connector
-	(pt 1640 1160)
-	(pt 1664 1160)
 )
 (connector
 	(pt 1152 1160)
@@ -2264,10 +2252,6 @@ refer to the applicable agreement for further details.
 	(pt 1456 696)
 )
 (connector
-	(pt 1456 696)
-	(pt 1472 696)
-)
-(connector
 	(pt 1440 712)
 	(pt 1456 712)
 	(bus)
@@ -2279,15 +2263,19 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
+	(text "hit" (rect 1232 988 1249 999)(font "Intel Clear" )(vertical))
 	(pt 1248 920)
-	(pt 1248 992)
-	(bus)
+	(pt 1248 1008)
 )
 (connector
-	(text "game_mode[2..0]" (rect 1248 976 1331 993)(font "Intel Clear" ))
-	(pt 1248 992)
-	(pt 1256 992)
-	(bus)
+	(text "hit" (rect 1466 680 1477 697)(font "Intel Clear" ))
+	(pt 1456 696)
+	(pt 1488 696)
+)
+(connector
+	(text "hit" (rect 1650 1144 1661 1161)(font "Intel Clear" ))
+	(pt 1640 1160)
+	(pt 1664 1160)
 )
 (junction (pt 744 752))
 (junction (pt 1456 648))

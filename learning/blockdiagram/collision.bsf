@@ -145,9 +145,9 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 304)
 		(input)
-		(text "gameMode[2..0]" (rect 0 0 64 12)(font "Arial" ))
-		(text "gameMode[2..0]" (rect 21 299 85 311)(font "Arial" ))
-		(line (pt 0 304)(pt 16 304)(line_width 3))
+		(text "hitTrigger" (rect 0 0 36 12)(font "Arial" ))
+		(text "hitTrigger" (rect 21 299 57 311)(font "Arial" ))
+		(line (pt 0 304)(pt 16 304)(line_width 1))
 	)
 	(port
 		(pt 208 32)

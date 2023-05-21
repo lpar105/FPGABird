@@ -73,13 +73,13 @@ begin
 		elsif (pipe1_x_pos < 0) then				
 			pipe2_x_pos <= CONV_STD_LOGIC_VECTOR(320,11);
 			pipe1_x_pos <= CONV_STD_LOGIC_VECTOR(640,11);
-			pipe1_gap <= "00000010010" + random_num1;			
+			pipe1_gap <= "00000000110" + random_num1;			
 			pipe_x_motion <= - CONV_STD_LOGIC_VECTOR(speed,10);
 			halfway <= '1';
 		elsif (pipe2_x_pos < 0) then		
 			pipe1_x_pos <= CONV_STD_LOGIC_VECTOR(320,11);
 			pipe2_x_pos <= CONV_STD_LOGIC_VECTOR(640,11);
-			pipe2_gap <= "00000010010" + random_num2;	
+			pipe2_gap <= "00000000110" + random_num2;	
 			pipe_x_motion <= - CONV_STD_LOGIC_VECTOR(speed,10);
 			halfway <= '1';
 		else	
