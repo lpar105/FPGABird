@@ -63,7 +63,7 @@ SIGNAL dash : std_logic_vector(5 downto 0) := "101101";
 SIGNAL slash : std_logic_vector(5 downto 0) := "101111";
 SIGNAL leftsquarebracket : std_logic_vector(5 downto 0) := "011011";
 SIGNAL rightsquarebracket : std_logic_vector(5 downto 0) := "011101";
-SIGNAL star : std_logic_vector(5 downto 0) := "110100";
+SIGNAL star : std_logic_vector(5 downto 0) := "101010";
 
 begin
 		
@@ -309,7 +309,7 @@ begin
 		
 		else -- Game has not started, showing MENU
 		
-			if (pixel_row = "01101") then -- menu
+			if (pixel_row = "01001") then -- menu
 				 if (pixel_col = "10001") then
 					  character_address <= M;
 				 elsif (pixel_col ="10010") then
@@ -321,11 +321,23 @@ begin
 					else
 					character_address <= space;
 				end if;
+			elsif (pixel_row = "01010") then -- menu dash line underneath
+				 if (pixel_col = "10001") then
+					  character_address <= dash;
+				 elsif (pixel_col ="10010") then
+					  character_address <= dash;
+				 elsif (pixel_col ="10011") then
+					  character_address <= dash;
+				 elsif (pixel_col ="10100") then
+					  character_address <= dash;
+				else
+					character_address <= space;
+				end if;
 			 else
 				character_address <= space;
 			end if;
 			
-			if (pixel_row = "01111") then -- to start press key[0]
+			if (pixel_row = "01100") then -- to start press key[0]
                 if (pixel_col ="01001") then
                     character_address <= T;
                 elsif (pixel_col ="01010") then
@@ -368,6 +380,62 @@ begin
                     character_address <= zero;
 					 elsif (pixel_col ="11101") then
                     character_address <= rightsquarebracket;
+					end if;
+					
+			elsif(pixel_row = "01111") then
+					
+					 if (pixel_col ="00110") then
+                    character_address <= T;
+                elsif (pixel_col ="00111") then
+                    character_address <= O;
+                elsif (pixel_col ="01000") then
+                    character_address <= G;
+                elsif (pixel_col ="01001") then
+                    character_address <= G;
+                elsif (pixel_col ="01010") then
+                    character_address <= L;
+                elsif (pixel_col ="01011") then
+                    character_address <= E;
+					 elsif (pixel_col ="01100") then
+                    character_address <= space;
+					 elsif (pixel_col ="01101") then
+                    character_address <= S;
+					 elsif (pixel_col ="01110") then
+                    character_address <= W;
+                elsif (pixel_col ="01111") then
+                    character_address <= I;
+                elsif (pixel_col ="10000") then
+                    character_address <= T;
+					 elsif (pixel_col ="10001") then
+                    character_address <= C;
+					 elsif (pixel_col ="10010") then
+                    character_address <= H;
+					 elsif (pixel_col ="10011") then
+                    character_address <= space;
+					 elsif (pixel_col ="10100") then
+                    character_address <= S;
+					 elsif (pixel_col ="10101") then
+                    character_address <= W;
+					 elsif (pixel_col ="10110") then
+                    character_address <= zero;
+					 elsif (pixel_col ="10111") then
+                    character_address <= space ;
+					 elsif (pixel_col ="11000") then
+                    character_address <= F;
+					 elsif (pixel_col ="11001") then
+                    character_address <= O;
+					 elsif (pixel_col ="11010") then
+                    character_address <= R;
+					 elsif (pixel_col ="11011") then
+                    character_address <= space;
+					 elsif (pixel_col ="11100") then
+                    character_address <= M;
+					 elsif (pixel_col ="11101") then
+                    character_address <= O;
+					 elsif (pixel_col ="11110") then
+                    character_address <= D;
+					 elsif (pixel_col ="11111") then
+                    character_address <= E;
 					end if;
 	
 			elsif(pixel_row = "10010") then

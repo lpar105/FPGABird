@@ -28,7 +28,7 @@ BEGIN
 
 		
 		if (falling_edge(start)) then
-			setGame <= '1';
+			setGame <= NOT setGame;
 		end if;
 		
 		if (setGame = '0') then
