@@ -11,8 +11,10 @@ ENTITY pipes IS
        pixel_row, pixel_column				: IN std_logic_vector(9 DOWNTO 0);
 		 random_num1								: IN std_logic_vector(6 DOWNTO 0);
 		 random_num2								: IN std_logic_vector(6 DOWNTO 0);
-		 game_mode									: IN std_logic_vector(2 DOWNTO 0);
-		 red, green, blue, halfway 			: OUT std_logic);		
+		 game_mode									: IN std_logic_vector(2 DOWNTO 0); 
+		 red, green, blue, halfway 			: OUT std_logic;
+		 x1									: OUT std_logic_vector(10 DOWNTO 0); 	
+		 x2									: OUT std_logic_vector(10 DOWNTO 0)); 	 
 END pipes;
 
 architecture behavior of pipes is
@@ -38,11 +40,11 @@ pipe_width <= CONV_STD_LOGIC_VECTOR(30,10);
 
 
 pipe1_on <= '1' when ( ('0' & (pipe1_x_pos + 15) <= '0' & pixel_column + pipe_width) and ('0' & pixel_column <= '0' & (pipe1_x_pos + 15) + pipe_width) 	-- x_pos - size <= pixel_column <= x_pos + size
-					and ('0' & pipe1_y_pos <= pixel_row + pipe_height) and ('0' & pixel_row <= pipe1_y_pos + pipe_height) and not(350 + pipe1_gap > pixel_row AND pixel_row > 50 + pipe1_gap) and (pixel_row > 60) and (enable = '1'))
+					and ('0' & pipe1_y_pos <= pixel_row + pipe_height) and ('0' & pixel_row <= pipe1_y_pos + pipe_height) and not(250 + pipe1_gap > pixel_row AND pixel_row > 150 + pipe1_gap) and (pixel_row > 60) and (enable = '1'))
 					else '0';-- y_pos - size <= pixel_row <= y_pos + size
 					
 pipe2_on <= '1' when ( ('0' & (pipe2_x_pos + 15) <= '0' & pixel_column + pipe_width) and ('0' & pixel_column <= '0' & (pipe2_x_pos + 15) + pipe_width) 	-- x_pos - size <= pixel_column <= x_pos + size
-					and ('0' & pipe2_y_pos <= pixel_row + pipe_height) and ('0' & pixel_row <= pipe2_y_pos + pipe_height) and not(350 + pipe2_gap > pixel_row AND pixel_row > 50 + pipe2_gap) and (pixel_row > 60) and (enable = '1'))
+					and ('0' & pipe2_y_pos <= pixel_row + pipe_height) and ('0' & pixel_row <= pipe2_y_pos + pipe_height) and not(250 + pipe2_gap > pixel_row AND pixel_row > 150 + pipe2_gap) and (pixel_row > 60) and (enable = '1'))
 					else '0';-- y_pos - size <= pixel_row <= y_pos + size
 					
 --halfway <= '1' when (pipe_x_pos < 280 AND pipe_x_pos > 250) else '0';
@@ -52,6 +54,8 @@ pipe2_on <= '1' when ( ('0' & (pipe2_x_pos + 15) <= '0' & pixel_column + pipe_wi
 -- Colours for pixel data on video signal
 -- Changing the background and ball colour by pushbuttons
 Green <= pipe1_on or pipe2_on;
+x1 <= pipe1_x_pos;
+x2 <= pipe2_x_pos;
 
 
 Move_Pipe: process (vert_sync)
@@ -61,11 +65,11 @@ begin
 	if (rising_edge(vert_sync)) then
 	
 		if (game_mode = "010") then
-			speed := 5;
-		elsif (game_mode = "011") then
-			speed := 7;
-		else
 			speed := 3;
+		elsif (game_mode = "011") then
+			speed := 4;
+		else
+			speed := 2;
 		end if;
 		
 		if (disable = '1') then

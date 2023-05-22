@@ -46,7 +46,7 @@ begin
 		if (thrust <= 20) then
 			thrust := 0;
 		else
-			thrust := thrust - 10;
+			thrust := thrust - 6;
 		end if;
 		
 		-- Set motion
@@ -54,7 +54,7 @@ begin
 			bird_y_motion <= CONV_STD_LOGIC_VECTOR(0,10);
 		elsif(left_click = '1' and prev_click_status = '0') then
 			velocity := 150;
-			thrust := 150;
+			thrust := 100;
 			bird_y_motion <= - CONV_STD_LOGIC_VECTOR(0,10);
 		elsif (bird_y_pos < 470 or thrust > 0) then
 			velocity := velocity + 20 - thrust;

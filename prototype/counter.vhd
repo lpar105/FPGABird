@@ -15,6 +15,7 @@ begin
 		variable dig1 : std_logic_vector(3 downto 0) := "0000";
 		variable dig2 : std_logic_vector(3 downto 0) := "0000";
 	begin
+	
 	if (enable = '1') then
 		if (reset ='1') then
 			dig1 := "0000";
