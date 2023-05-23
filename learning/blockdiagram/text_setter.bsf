@@ -20,9 +20,15 @@ refer to the applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
+<<<<<<< Updated upstream
 	(rect 16 16 296 128)
 	(text "text_setter" (rect 5 0 47 12)(font "Arial" ))
 	(text "inst" (rect 8 96 20 108)(font "Arial" ))
+=======
+	(rect 16 16 296 224)
+	(text "text_setter" (rect 5 0 47 12)(font "Arial" ))
+	(text "inst" (rect 8 192 20 204)(font "Arial" ))
+>>>>>>> Stashed changes
 	(port
 		(pt 0 32)
 		(input)
@@ -47,9 +53,50 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 80)
 		(input)
+<<<<<<< Updated upstream
 		(text "gameModeText[2..0]" (rect 0 0 82 12)(font "Arial" ))
 		(text "gameModeText[2..0]" (rect 21 75 103 87)(font "Arial" ))
 		(line (pt 0 80)(pt 16 80)(line_width 3))
+=======
+		(text "disable" (rect 0 0 25 12)(font "Arial" ))
+		(text "disable" (rect 21 75 46 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "sw" (rect 0 0 10 12)(font "Arial" ))
+		(text "sw" (rect 21 91 31 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "enable" (rect 0 0 24 12)(font "Arial" ))
+		(text "enable" (rect 21 107 45 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "gameOver" (rect 0 0 43 12)(font "Arial" ))
+		(text "gameOver" (rect 21 123 64 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 1))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "gameModeText[2..0]" (rect 0 0 82 12)(font "Arial" ))
+		(text "gameModeText[2..0]" (rect 21 139 103 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
+>>>>>>> Stashed changes
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "lives[2..0]" (rect 0 0 37 12)(font "Arial" ))
+		(text "lives[2..0]" (rect 21 155 58 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 3))
 	)
 	(port
 		(pt 280 32)
@@ -59,6 +106,10 @@ refer to the applicable agreement for further details.
 		(line (pt 280 32)(pt 264 32)(line_width 3))
 	)
 	(drawing
+<<<<<<< Updated upstream
 		(rectangle (rect 16 16 264 96)(line_width 1))
+=======
+		(rectangle (rect 16 16 264 192)(line_width 1))
+>>>>>>> Stashed changes
 	)
 )

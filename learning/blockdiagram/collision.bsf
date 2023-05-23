@@ -170,6 +170,13 @@ refer to the applicable agreement for further details.
 		(text "lives[9..0]" (rect 134 91 171 103)(font "Arial" ))
 		(line (pt 192 96)(pt 176 96)(line_width 3))
 	)
+	(port
+		(pt 208 112)
+		(output)
+		(text "gameOver" (rect 0 0 43 12)(font "Arial" ))
+		(text "gameOver" (rect 144 107 187 119)(font "Arial" ))
+		(line (pt 208 112)(pt 192 112)(line_width 1))
+	)
 	(drawing
 		(rectangle (rect 16 16 176 288)(line_width 1))
 	)

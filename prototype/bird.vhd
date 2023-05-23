@@ -6,8 +6,13 @@ USE  IEEE.STD_LOGIC_SIGNED.all;
 
 ENTITY Mario IS
 	PORT
+<<<<<<< Updated upstream
 		( clk, vert_sync, left_click, enable	: IN std_logic;
         pixel_row, pixel_column					: IN std_logic_vector(9 DOWNTO 0);
+=======
+		( clk, vert_sync, left_click, enable, disable, reset, hit	: IN std_logic;
+			pixel_row, pixel_column					: IN std_logic_vector(9 DOWNTO 0);
+>>>>>>> Stashed changes
 		  red, green, blue 							: OUT std_logic);		
 END Mario;
 
@@ -35,13 +40,19 @@ bird_on <= '1' when ( ('0' & bird_x_pos <= '0' & pixel_column + size) and ('0' &
 blue <= bird_on;
 
 
-Move_Mario: process (vert_sync) 
+Move_Mario: process (vert_sync, enable) 
 variable prev_click_status: std_logic := '0';
 variable velocity: integer := 150;
-variable thrust: integer := 0;	
+variable thrust: integer := 0;
 begin
+
 	-- Move bird once every vertical sync
 	if (rising_edge(vert_sync)) then
+	
+		if (hit = '1') then
+			bird_y_pos <= CONV_STD_LOGIC_VECTOR(240, 10);  -- Set bird's y position to original value
+		end if;
+		
 		-- Update thrust 
 		if (thrust <= 20) then
 			thrust := 0;
@@ -69,7 +80,9 @@ begin
 			prev_click_status := '0';
 		end if;
 	end if;
+	
 end process Move_Mario;
+
 
 END flap;
 

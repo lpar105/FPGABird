@@ -61,9 +61,29 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 112)
 		(input)
+<<<<<<< Updated upstream
 		(text "pixel_column[9..0]" (rect 0 0 70 12)(font "Arial" ))
 		(text "pixel_column[9..0]" (rect 21 107 91 119)(font "Arial" ))
 		(line (pt 0 112)(pt 16 112)(line_width 3))
+=======
+		(text "hit" (rect 0 0 8 12)(font "Arial" ))
+		(text "hit" (rect 21 107 29 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "pixel_row[9..0]" (rect 0 0 56 12)(font "Arial" ))
+		(text "pixel_row[9..0]" (rect 21 123 77 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
+>>>>>>> Stashed changes
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "pixel_column[9..0]" (rect 0 0 70 12)(font "Arial" ))
+		(text "pixel_column[9..0]" (rect 21 139 91 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
 	)
 	(port
 		(pt 192 32)
