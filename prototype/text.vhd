@@ -65,12 +65,14 @@ SIGNAL leftsquarebracket : std_logic_vector(5 downto 0) := "011011";
 SIGNAL rightsquarebracket : std_logic_vector(5 downto 0) := "011101";
 SIGNAL star : std_logic_vector(5 downto 0) := "101010";
 
+SIGNAL prev_mode : std_logic_vector(2 DOWNTO 0);
+
 begin
 		
 
-    process (pixel_col, pixel_row, gameModeText, disable, lives, enable) 
+    process (pixel_col, pixel_row, gameModeText, disable, lives, enable, clk) 
     begin
-			
+	 
 		if (enable = '1') then -- if game is being played
 			
 		   if (lives = "101") then

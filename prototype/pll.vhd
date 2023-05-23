@@ -33,7 +33,7 @@ begin
 		port map (
 			refclk   => refclk,   --  refclk.clk
 			rst      => rst,      --   reset.reset
-			outclk_0 => outclk_0, -- outclk0.clk
+		outclk_0 => outclk_0, -- outclk0.clk
 			locked   => locked    --  locked.export
 		);
 

@@ -9,8 +9,7 @@ ENTITY pipes IS
 	PORT
 		(clk, vert_sync, enable, disable		: IN std_logic;
        pixel_row, pixel_column				: IN std_logic_vector(9 DOWNTO 0);
-		 random_num1								: IN std_logic_vector(6 DOWNTO 0);
-		 random_num2								: IN std_logic_vector(6 DOWNTO 0);
+		 random_num								: IN std_logic_vector(6 DOWNTO 0);
 		 game_mode									: IN std_logic_vector(2 DOWNTO 0); 
 		 red, green, blue, halfway 			: OUT std_logic;
 		 x1									: OUT std_logic_vector(10 DOWNTO 0); 	
@@ -77,13 +76,14 @@ begin
 		elsif (pipe1_x_pos < 0) then				
 			pipe2_x_pos <= CONV_STD_LOGIC_VECTOR(320,11);
 			pipe1_x_pos <= CONV_STD_LOGIC_VECTOR(640,11);
-			pipe1_gap <= "00000000110" + random_num1;			
+			pipe1_gap <= "00000001110" + random_num;			
 			pipe_x_motion <= - CONV_STD_LOGIC_VECTOR(speed,10);
 			halfway <= '1';
 		elsif (pipe2_x_pos < 0) then		
 			pipe1_x_pos <= CONV_STD_LOGIC_VECTOR(320,11);
 			pipe2_x_pos <= CONV_STD_LOGIC_VECTOR(640,11);
-			pipe2_gap <= "00000000110" + random_num2;	
+			pipe2_gap <= "00000001110" + random_num;	
+			
 			pipe_x_motion <= - CONV_STD_LOGIC_VECTOR(speed,10);
 			halfway <= '1';
 		else	
