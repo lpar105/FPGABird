@@ -19,13 +19,13 @@ begin
 	BEGIN
 		if (enable = '0') then -- Game in Menu Mode 
 		
-			red <= text_in;
+			red <= text_in or red_game;
 			green <= green_game;
 			blue <= blue_game;
 		
 		else -- Game is running
 			
-			red <= text_in;
+			red <= text_in or red_game;
 			green <= green_game;
 			blue <= blue_game;
 		

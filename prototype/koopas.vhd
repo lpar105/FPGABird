@@ -47,7 +47,7 @@ begin
 			koopa_x_pos <= pipe_x2_pos - CONV_STD_LOGIC_VECTOR(140,11);
 		end if;
 		
-		if (koopa_x_pos > 635) then
+		if (koopa_x_pos > 637) then
 			koopa_y_pos <= random_num + CONV_STD_LOGIC_VECTOR(200,11);
 		end if;
 	end if;

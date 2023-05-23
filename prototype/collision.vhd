@@ -14,27 +14,38 @@ end collision;
 
 architecture combine of collision is
   signal collisionhit : std_logic := '0';
+  signal immunityhit : std_logic := '0';
+  signal red_immune : std_logic;
   signal collision_counter : unsigned(8 downto 0); -- value of this can be changed for sensitivity
   signal hit_delay_counter : unsigned(26 downto 0);
   
 begin
-  red <= '0';
-  green <= green_pipe or green_koopa;
+
+  red_immune <= '0' when hit_delay_counter = to_unsigned(0, hit_delay_counter'length) else 
+		  '1' when blue_bird = '1' else
+			'0' ;
+	
+  --oneup is actually star lmao. the symbol file is REFUSING to update
+  red <= red_immune or red_oneup;
+  green <= green_pipe or green_koopa or green_oneup;
   blue <= blue_bird;
 
   collisionhit <= (green_pipe or green_koopa) and blue_bird;
+  immunityhit <= red_oneup and blue_bird;
 
   process (clk)
   begin
     if rising_edge(clk) then
-        if collisionhit = '1' then
+        if collisionhit = '1' or immunityhit = '1' then
           if hit_delay_counter = to_unsigned(0, hit_delay_counter'length) then
             collision_counter <= collision_counter - 1;
             if collision_counter = to_unsigned(0, collision_counter'length) then
-              hit <= '1';
-              lives <= std_logic_vector(unsigned(currentlives) - 1);
-              hit_delay_counter <= (others => '1');
-              collision_counter <= (others => '1');
+					if (immunityhit = '0') then
+						hit <= '1';
+						lives <= std_logic_vector(unsigned(currentlives) - 1);
+				   end if;
+               hit_delay_counter <= (others => '1');
+               collision_counter <= (others => '1');
             end if;
           else
             hit <= '0';
