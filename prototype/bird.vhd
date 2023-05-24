@@ -15,7 +15,7 @@ architecture flap of Mario is
 
 SIGNAL bird_on					: std_logic;
 SIGNAL size 					: std_logic_vector(9 DOWNTO 0);  
-SIGNAL bird_y_pos				: std_logic_vector(9 DOWNTO 0);
+SIGNAL bird_y_pos				: std_logic_vector(9 DOWNTO 0):= "0011110000";
 SIGNAL bird_x_pos				: std_logic_vector(10 DOWNTO 0);
 SIGNAL bird_y_motion			: std_logic_vector(9 DOWNTO 0);
 
@@ -42,6 +42,7 @@ variable thrust: integer := 0;
 begin
 	-- Move bird once every vertical sync
 	if (rising_edge(vert_sync)) then
+	if (enable = '1') then
 		-- Update thrust 
 		if (thrust <= 20) then
 			thrust := 0;
@@ -54,7 +55,11 @@ begin
 			bird_y_motion <= CONV_STD_LOGIC_VECTOR(0,10);
 		elsif(left_click = '1' and prev_click_status = '0') then
 			velocity := 150;
-			thrust := 100;
+			if (thrust >= 20) then
+				thrust :=  thrust + 35;
+			else
+				thrust :=  100;
+			end if;
 			bird_y_motion <= - CONV_STD_LOGIC_VECTOR(0,10);
 		elsif (bird_y_pos < 470 or thrust > 0) then
 			velocity := velocity + 20 - thrust;
@@ -64,8 +69,8 @@ begin
 		end if;
 		bird_y_pos <= bird_y_pos + bird_y_motion;
 		
-		if (bird_y_pos > 420) then
-			bird_y_pos <= CONV_STD_LOGIC_VECTOR(420,10);
+		if (bird_y_pos > 413) then
+			bird_y_pos <= CONV_STD_LOGIC_VECTOR(413,10);
 			velocity := 0;
 		end if;
 		
@@ -80,6 +85,7 @@ begin
 		else 
 			prev_click_status := '0';
 		end if;
+	end if;
 	end if;
 end process Move_Mario;
 

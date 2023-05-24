@@ -25,7 +25,6 @@ BEGIN
 	-- output
 	process (start, sw, setGame, changeMode)
 	BEGIN
-
 		
 		if (falling_edge(start)) then
 			setGame <= NOT setGame;
@@ -42,11 +41,17 @@ BEGIN
 				 mode <= "010";
 			elsif (last_mode = "010") then
 				 mode <= "011";
-			else
 			end if;
-		else
 		end if;
-		enable <= setGame;
+		
+		if (setGame = '1' and lives = "000") then
+			enable <= '0';
+		elsif (setGame = '1') then
+			enable <= '1';
+		else
+			enable <= '0';
+		end if;
+		
 		disable <= pauseGame;
 	END PROCESS;
 END flap;

@@ -53,6 +53,14 @@ begin
 			star_y_pos <= random_num & "010"	+ CONV_STD_LOGIC_VECTOR(200,11);
 			rand <= random_num(3);
 		end if;
+	
+		if (star_y_pos > 413) then
+			star_y_pos <= CONV_STD_LOGIC_VECTOR(400,11);
+		end if;
+		
+		if (star_y_pos < 64) then
+			star_y_pos <= CONV_STD_LOGIC_VECTOR(90,11);
+		end if;
 	end if;
 end process Move_Star;
 

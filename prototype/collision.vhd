@@ -18,7 +18,7 @@ architecture combine of collision is
   signal red_immune : std_logic;
   signal collision_counter : unsigned(8 downto 0); -- value of this can be changed for sensitivity
   signal hit_delay_counter : unsigned(26 downto 0);
-  
+  signal lives_set: std_logic := '0';
 begin
 
   red_immune <= '0' when hit_delay_counter = to_unsigned(0, hit_delay_counter'length) else 
@@ -36,6 +36,10 @@ begin
   process (clk)
   begin
     if rising_edge(clk) then
+		if (lives_set = '0') then
+			lives <= "101";
+			lives_set <= '1';
+		end if;
         if collisionhit = '1' or immunityhit = '1' then
           if hit_delay_counter = to_unsigned(0, hit_delay_counter'length) then
             collision_counter <= collision_counter - 1;

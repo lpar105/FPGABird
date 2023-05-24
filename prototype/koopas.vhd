@@ -51,6 +51,14 @@ begin
 		if (koopa_x_pos > 635) then
 			koopa_y_pos <= random_num + CONV_STD_LOGIC_VECTOR(200,11);
 		end if;
+		
+		if (koopa_y_pos > 413) then
+			koopa_y_pos <= CONV_STD_LOGIC_VECTOR(400,11);
+		end if;
+		
+		if (koopa_y_pos < 64) then
+			koopa_y_pos <= CONV_STD_LOGIC_VECTOR(90,11);
+		end if;
 	end if;
 end process Move_Pipe;
 
