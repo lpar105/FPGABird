@@ -88,7 +88,7 @@ begin
 				lower_range_1 <= 145;
 			elsif (game_mode = "011") then
 				speed := 5;
-				upper_range_1 <= 240;
+				upper_range_1 <= 244;
 				lower_range_1 <= 160;
 			else
 				speed := 3;
@@ -105,14 +105,14 @@ begin
 			pipe_x_motion <= - CONV_STD_LOGIC_VECTOR(speed,10);
 			halfway <= '1';
 			if (game_mode = "010") then
-				upper_range_2 <= 250;
-				lower_range_2 <= 150;
+				upper_range_2 <= 255;
+				lower_range_2 <= 145;
 			elsif (game_mode = "011") then
-				upper_range_2 <= 240;
+				upper_range_2 <= 224;
 				lower_range_2 <= 160;
 			else
-				upper_range_2 <= 260;
-				lower_range_2 <= 140;
+				upper_range_2 <= 270;
+				lower_range_2 <= 130;
 	
 			end if;
 		else	

@@ -45,13 +45,17 @@ BEGIN
 		end if;
 		
 		if (setGame = '1' and lives = "000") then
-			enable <= '0';
+			mode <= "111"; -- game over mode
+			-- enable <= '0';
+			disable <= '1';
 		elsif (setGame = '1') then
 			enable <= '1';
+			disable <= pauseGame;
 		else
 			enable <= '0';
+			disable <= pauseGame;
 		end if;
 		
-		disable <= pauseGame;
+		--disable <= pauseGame;
 	END PROCESS;
 END flap;
