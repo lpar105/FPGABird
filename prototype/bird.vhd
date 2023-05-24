@@ -64,6 +64,16 @@ begin
 		end if;
 		bird_y_pos <= bird_y_pos + bird_y_motion;
 		
+		if (bird_y_pos > 420) then
+			bird_y_pos <= CONV_STD_LOGIC_VECTOR(420,10);
+			velocity := 0;
+		end if;
+		
+		if (bird_y_pos < 64) then
+			bird_y_pos <= CONV_STD_LOGIC_VECTOR(68,10);
+			velocity := 0;
+		end if;
+		
 		-- Update previous click status
 		if(left_click = '1') then
 			prev_click_status := '1';

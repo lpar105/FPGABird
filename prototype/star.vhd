@@ -49,7 +49,7 @@ begin
 			star_x_pos <= pipe_x2_pos - CONV_STD_LOGIC_VECTOR(140,11);
 		end if;
 		
-		if (star_x_pos > 637) then
+		if (star_x_pos > 635) then
 			star_y_pos <= random_num & "010"	+ CONV_STD_LOGIC_VECTOR(200,11);
 			rand <= random_num(3);
 		end if;

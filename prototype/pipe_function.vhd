@@ -20,6 +20,7 @@ architecture behavior of pipes is
 
 SIGNAL pipe1_on					: std_logic;
 SIGNAL pipe2_on					: std_logic;
+SIGNAL pipe_roof					: std_logic;
 SIGNAL pipe_height 				: std_logic_vector(10 DOWNTO 0);  
 SIGNAL pipe_width 				: std_logic_vector(9 DOWNTO 0); 
 SIGNAL pipe1_y_pos				: std_logic_vector(9 DOWNTO 0);
@@ -42,6 +43,10 @@ pipe1_on <= '1' when ( ('0' & (pipe1_x_pos + 15) <= '0' & pixel_column + pipe_wi
 					and ('0' & pipe1_y_pos <= pixel_row + pipe_height) and ('0' & pixel_row <= pipe1_y_pos + pipe_height) and not(250 + pipe1_gap > pixel_row AND pixel_row > 150 + pipe1_gap) and (pixel_row > 60) and (enable = '1'))
 					else '0';-- y_pos - size <= pixel_row <= y_pos + size
 					
+pipe_roof <= '1' when (((pixel_row >= 55) and (pixel_row <= 60)) or (420 < pixel_row)) and enable ='1' else '0';
+
+
+
 pipe2_on <= '1' when ( ('0' & (pipe2_x_pos + 15) <= '0' & pixel_column + pipe_width) and ('0' & pixel_column <= '0' & (pipe2_x_pos + 15) + pipe_width) 	-- x_pos - size <= pixel_column <= x_pos + size
 					and ('0' & pipe2_y_pos <= pixel_row + pipe_height) and ('0' & pixel_row <= pipe2_y_pos + pipe_height) and not(250 + pipe2_gap > pixel_row AND pixel_row > 150 + pipe2_gap) and (pixel_row > 60) and (enable = '1'))
 					else '0';-- y_pos - size <= pixel_row <= y_pos + size
@@ -52,7 +57,7 @@ pipe2_on <= '1' when ( ('0' & (pipe2_x_pos + 15) <= '0' & pixel_column + pipe_wi
 
 -- Colours for pixel data on video signal
 -- Changing the background and ball colour by pushbuttons
-Green <= pipe1_on or pipe2_on;
+Green <= pipe1_on or pipe2_on or pipe_roof;
 x1 <= pipe1_x_pos;
 x2 <= pipe2_x_pos;
 

@@ -21,7 +21,7 @@ begin
 			dig1 := "0000";
 			dig2 := "0000";
 		elsif (rising_edge(clk)) then	
-			if (dig1 = "0100" and dig2 = "0010") then
+			if (dig1 = "0000" and dig2 = "0001") then
 				changeMode <= '1';
 				dig1 := "0000";
 				dig2 := "0000";
