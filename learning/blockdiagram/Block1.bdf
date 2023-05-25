@@ -987,7 +987,7 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 928 1248 1208 1424)
+	(rect 920 1272 1200 1448)
 	(text "text_setter" (rect 5 0 58 12)(font "Arial" ))
 	(text "inst16" (rect 8 160 37 172)(font "Arial" ))
 	(port
@@ -1320,42 +1320,42 @@ refer to the applicable agreement for further details.
 		(pt 208 32)
 		(output)
 		(text "red" (rect 0 0 15 12)(font "Arial" ))
-		(text "red" (rect 175 27 187 39)(font "Arial" ))
+		(text "red" (rect 175 27 190 39)(font "Arial" ))
 		(line (pt 208 32)(pt 192 32))
 	)
 	(port
 		(pt 208 48)
 		(output)
 		(text "green" (rect 0 0 27 12)(font "Arial" ))
-		(text "green" (rect 165 43 187 55)(font "Arial" ))
+		(text "green" (rect 165 43 192 55)(font "Arial" ))
 		(line (pt 208 48)(pt 192 48))
 	)
 	(port
 		(pt 208 64)
 		(output)
 		(text "blue" (rect 0 0 20 12)(font "Arial" ))
-		(text "blue" (rect 171 59 187 71)(font "Arial" ))
+		(text "blue" (rect 171 59 191 71)(font "Arial" ))
 		(line (pt 208 64)(pt 192 64))
 	)
 	(port
 		(pt 208 80)
 		(output)
 		(text "halfway" (rect 0 0 38 12)(font "Arial" ))
-		(text "halfway" (rect 155 75 187 87)(font "Arial" ))
+		(text "halfway" (rect 155 75 193 87)(font "Arial" ))
 		(line (pt 208 80)(pt 192 80))
 	)
 	(port
 		(pt 208 96)
 		(output)
 		(text "x1[10..0]" (rect 0 0 43 12)(font "Arial" ))
-		(text "x1[10..0]" (rect 151 91 187 103)(font "Arial" ))
+		(text "x1[10..0]" (rect 151 91 194 103)(font "Arial" ))
 		(line (pt 208 96)(pt 192 96)(line_width 3))
 	)
 	(port
 		(pt 208 112)
 		(output)
 		(text "x2[10..0]" (rect 0 0 43 12)(font "Arial" ))
-		(text "x2[10..0]" (rect 151 107 187 119)(font "Arial" ))
+		(text "x2[10..0]" (rect 151 107 194 119)(font "Arial" ))
 		(line (pt 208 112)(pt 192 112)(line_width 3))
 	)
 	(drawing
@@ -1503,35 +1503,35 @@ refer to the applicable agreement for further details.
 		(pt 208 32)
 		(output)
 		(text "red" (rect 0 0 15 12)(font "Arial" ))
-		(text "red" (rect 175 27 187 39)(font "Arial" ))
+		(text "red" (rect 175 27 190 39)(font "Arial" ))
 		(line (pt 208 32)(pt 192 32))
 	)
 	(port
 		(pt 208 48)
 		(output)
 		(text "green" (rect 0 0 27 12)(font "Arial" ))
-		(text "green" (rect 165 43 187 55)(font "Arial" ))
+		(text "green" (rect 165 43 192 55)(font "Arial" ))
 		(line (pt 208 48)(pt 192 48))
 	)
 	(port
 		(pt 208 64)
 		(output)
 		(text "blue" (rect 0 0 20 12)(font "Arial" ))
-		(text "blue" (rect 171 59 187 71)(font "Arial" ))
+		(text "blue" (rect 171 59 191 71)(font "Arial" ))
 		(line (pt 208 64)(pt 192 64))
 	)
 	(port
 		(pt 208 80)
 		(output)
 		(text "hit" (rect 0 0 11 12)(font "Arial" ))
-		(text "hit" (rect 178 75 187 87)(font "Arial" ))
+		(text "hit" (rect 178 75 189 87)(font "Arial" ))
 		(line (pt 208 80)(pt 192 80))
 	)
 	(port
 		(pt 208 96)
 		(output)
 		(text "lives[2..0]" (rect 0 0 49 12)(font "Arial" ))
-		(text "lives[2..0]" (rect 146 91 187 103)(font "Arial" ))
+		(text "lives[2..0]" (rect 146 91 195 103)(font "Arial" ))
 		(line (pt 208 96)(pt 192 96)(line_width 3))
 	)
 	(drawing
@@ -1728,11 +1728,6 @@ refer to the applicable agreement for further details.
 	(pt 1560 696)
 )
 (connector
-	(text "clk" (rect 898 1296 912 1313)(font "Intel Clear" ))
-	(pt 928 1312)
-	(pt 888 1312)
-)
-(connector
 	(text "pixel_row[9..0]" (rect 912 1016 981 1033)(font "Intel Clear" ))
 	(pt 952 1032)
 	(pt 912 1032)
@@ -1742,12 +1737,6 @@ refer to the applicable agreement for further details.
 	(text "pixel_row[9..0]" (rect 920 1160 989 1177)(font "Intel Clear" ))
 	(pt 952 1176)
 	(pt 920 1176)
-	(bus)
-)
-(connector
-	(text "pixel_col[9..4]" (rect 874 1264 940 1281)(font "Intel Clear" ))
-	(pt 928 1280)
-	(pt 864 1280)
 	(bus)
 )
 (connector
@@ -1785,12 +1774,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 1616 1080)
 	(pt 1832 1080)
-	(bus)
-)
-(connector
-	(text "pixel_row[9..4]" (rect 864 1280 933 1297)(font "Intel Clear" ))
-	(pt 928 1296)
-	(pt 872 1296)
 	(bus)
 )
 (connector
@@ -1867,11 +1850,6 @@ refer to the applicable agreement for further details.
 	(text "vert_sync" (rect 2042 688 2088 705)(font "Intel Clear" ))
 	(pt 2032 704)
 	(pt 2088 704)
-)
-(connector
-	(pt 1208 1280)
-	(pt 1296 1280)
-	(bus)
 )
 (connector
 	(text "pixel_row[3..1]" (rect 1248 1280 1317 1297)(font "Intel Clear" ))
@@ -1978,17 +1956,6 @@ refer to the applicable agreement for further details.
 	(pt 920 568)
 )
 (connector
-	(text "game_mode[2..0]" (rect 824 1360 907 1377)(font "Intel Clear" ))
-	(pt 928 1376)
-	(pt 856 1376)
-	(bus)
-)
-(connector
-	(text "disable" (rect 890 1312 924 1329)(font "Intel Clear" ))
-	(pt 928 1328)
-	(pt 880 1328)
-)
-(connector
 	(text "lives [2..0]" (rect 1704 960 1752 977)(font "Intel Clear" ))
 	(pt 1736 976)
 	(pt 1704 976)
@@ -2030,22 +1997,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 1560 696)
 	(pt 1560 1280)
-)
-(connector
-	(text "enable" (rect 890 1328 923 1345)(font "Intel Clear" ))
-	(pt 928 1344)
-	(pt 880 1344)
-)
-(connector
-	(text "lives[2..0]" (rect 874 1376 920 1393)(font "Intel Clear" ))
-	(pt 928 1392)
-	(pt 864 1392)
-	(bus)
-)
-(connector
-	(text "SW[0]" (rect 898 1344 927 1361)(font "Intel Clear" ))
-	(pt 928 1360)
-	(pt 888 1360)
 )
 (connector
 	(text "tens [3..0]" (rect 1850 1160 1896 1177)(font "Intel Clear" ))
@@ -2395,6 +2346,65 @@ refer to the applicable agreement for further details.
 	(text "disable" (rect 1232 993 1249 1027)(font "Intel Clear" )(vertical))
 	(pt 1248 936)
 	(pt 1248 1032)
+)
+(connector
+	(text "clk" (rect 890 1320 904 1337)(font "Intel Clear" ))
+	(pt 920 1336)
+	(pt 880 1336)
+)
+(connector
+	(text "pixel_col[9..4]" (rect 866 1288 932 1305)(font "Intel Clear" ))
+	(pt 920 1304)
+	(pt 856 1304)
+	(bus)
+)
+(connector
+	(text "pixel_row[9..4]" (rect 856 1304 925 1321)(font "Intel Clear" ))
+	(pt 920 1320)
+	(pt 864 1320)
+	(bus)
+)
+(connector
+	(pt 1208 1280)
+	(pt 1208 1304)
+	(bus)
+)
+(connector
+	(pt 1296 1280)
+	(pt 1208 1280)
+	(bus)
+)
+(connector
+	(pt 1208 1304)
+	(pt 1200 1304)
+	(bus)
+)
+(connector
+	(text "game_mode[2..0]" (rect 816 1384 899 1401)(font "Intel Clear" ))
+	(pt 920 1400)
+	(pt 848 1400)
+	(bus)
+)
+(connector
+	(text "disable" (rect 882 1336 916 1353)(font "Intel Clear" ))
+	(pt 920 1352)
+	(pt 872 1352)
+)
+(connector
+	(text "enable" (rect 882 1352 915 1369)(font "Intel Clear" ))
+	(pt 920 1368)
+	(pt 872 1368)
+)
+(connector
+	(text "lives[2..0]" (rect 866 1400 912 1417)(font "Intel Clear" ))
+	(pt 920 1416)
+	(pt 856 1416)
+	(bus)
+)
+(connector
+	(text "SW[0]" (rect 890 1368 919 1385)(font "Intel Clear" ))
+	(pt 920 1384)
+	(pt 880 1384)
 )
 (junction (pt 1456 648))
 (junction (pt 1456 664))

@@ -45,8 +45,8 @@ BEGIN
 		end if;
 		
 		if (setGame = '1' and lives = "000") then
-			mode <= "111"; -- game over mode
-			-- enable <= '0';
+			
+			enable <= '1';
 			disable <= '1';
 		elsif (setGame = '1') then
 			enable <= '1';

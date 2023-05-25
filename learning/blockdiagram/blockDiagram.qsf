@@ -48,26 +48,6 @@ set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name VHDL_FILE ../../prototype/view_selector.vhd
-set_global_assignment -name VHDL_FILE ../../prototype/state_handler.vhd
-set_global_assignment -name VHDL_FILE ../../prototype/star.vhd
-set_global_assignment -name VHDL_FILE ../../prototype/one_up.vhd
-set_global_assignment -name VHDL_FILE ../../prototype/koopas.vhd
-set_global_assignment -name VHDL_FILE ../../prototype/vga_sync.vhd
-set_global_assignment -name VHDL_FILE ../../prototype/text.vhd
-set_global_assignment -name VHDL_FILE ../../prototype/pll.vhd -library pll
-set_global_assignment -name QIP_FILE ../../prototype/pll.qip
-set_global_assignment -name VHDL_FILE ../../prototype/pipe_function.vhd
-set_global_assignment -name VHDL_FILE ../../prototype/mouse.vhd
-set_global_assignment -name VHDL_FILE ../../prototype/lfsr.vhd
-set_global_assignment -name VHDL_FILE ../../prototype/game_start.vhd
-set_global_assignment -name VHDL_FILE ../../prototype/counter.vhd
-set_global_assignment -name VHDL_FILE ../../prototype/collision.vhd
-set_global_assignment -name VHDL_FILE ../../prototype/char_rom.vhd
-set_global_assignment -name VHDL_FILE ../../prototype/bird.vhd
-set_global_assignment -name VHDL_FILE ../../prototype/7_seg.vhd
-set_global_assignment -name VHDL_FILE blockDiagram.vhd
-set_global_assignment -name BDF_FILE Block1.bdf
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -282,4 +262,25 @@ set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE0_CV_Default
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity DE0_CV_Default -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -entity DE0_CV_Default -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE0_CV_Default -section_id Top
+set_global_assignment -name MIF_FILE ../../prototype/newcharacter.MIF
+set_global_assignment -name VHDL_FILE ../../prototype/view_selector.vhd
+set_global_assignment -name VHDL_FILE ../../prototype/state_handler.vhd
+set_global_assignment -name VHDL_FILE ../../prototype/star.vhd
+set_global_assignment -name VHDL_FILE ../../prototype/one_up.vhd
+set_global_assignment -name VHDL_FILE ../../prototype/koopas.vhd
+set_global_assignment -name VHDL_FILE ../../prototype/vga_sync.vhd
+set_global_assignment -name VHDL_FILE ../../prototype/text.vhd
+set_global_assignment -name VHDL_FILE ../../prototype/pll.vhd -library pll
+set_global_assignment -name QIP_FILE ../../prototype/pll.qip
+set_global_assignment -name VHDL_FILE ../../prototype/pipe_function.vhd
+set_global_assignment -name VHDL_FILE ../../prototype/mouse.vhd
+set_global_assignment -name VHDL_FILE ../../prototype/lfsr.vhd
+set_global_assignment -name VHDL_FILE ../../prototype/game_start.vhd
+set_global_assignment -name VHDL_FILE ../../prototype/counter.vhd
+set_global_assignment -name VHDL_FILE ../../prototype/collision.vhd
+set_global_assignment -name VHDL_FILE ../../prototype/char_rom.vhd
+set_global_assignment -name VHDL_FILE ../../prototype/bird.vhd
+set_global_assignment -name VHDL_FILE ../../prototype/7_seg.vhd
+set_global_assignment -name VHDL_FILE blockDiagram.vhd
+set_global_assignment -name BDF_FILE Block1.bdf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

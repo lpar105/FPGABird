@@ -19,6 +19,7 @@ END text_setter;
 
 ARCHITECTURE behave OF text_setter IS
 	SIGNAL liveText : std_logic_vector(5 DOWNTO 0);
+	SIGNAL HEART : std_logic_vector(5 DOWNTO 0) := "000000";
 	SIGNAL A : std_logic_vector(5 DOWNTO 0) := "000001";
 	SIGNAL B : std_logic_vector(5 DOWNTO 0) := "000010";
 	SIGNAL C : std_logic_vector(5 DOWNTO 0) := "000011";
@@ -114,6 +115,22 @@ BEGIN
 						character_address <= D;
 					ELSIF (pixel_col = "01110") THEN
 						character_address <= E;
+					ELSIF (pixel_col = "10000") THEN
+					
+					ELSIF (pixel_col = "11000") THEN
+						character_address <= L;
+					ELSIF (pixel_col = "11001") THEN
+						character_address <= I;
+					ELSIF (pixel_col = "11010") THEN
+						character_address <= V;
+					ELSIF (pixel_col = "11011") THEN
+						character_address <= E;
+					ELSIF (pixel_col = "11100") THEN
+						character_address <= S;
+					ELSIF (pixel_col = "11101") THEN
+						character_address <= HEART;
+					ELSIF (pixel_col = "11111") THEN
+						character_address <= liveText; -- ???????
 					ELSE
 						character_address <= space;
 					END IF;
@@ -165,7 +182,7 @@ BEGIN
 					ELSIF (pixel_col = "11100") THEN
 						character_address <= S;
 					ELSIF (pixel_col = "11101") THEN
-						character_address <= dash;
+						character_address <= HEART;
 					ELSIF (pixel_col = "11111") THEN
 						character_address <= liveText; -- ???????
 					ELSE
@@ -220,7 +237,7 @@ BEGIN
 					ELSIF (pixel_col = "11100") THEN
 						character_address <= S;
 					ELSIF (pixel_col = "11101") THEN
-						character_address <= dash;
+						character_address <= HEART;
 					ELSIF (pixel_col = "11111") THEN
 						character_address <= liveText; -- ???????
  
@@ -275,7 +292,7 @@ BEGIN
 					ELSIF (pixel_col = "11100") THEN
 						character_address <= S;
 					ELSIF (pixel_col = "11101") THEN
-						character_address <= dash;
+						character_address <= HEART;
 					ELSIF (pixel_col = "11111") THEN
 						character_address <= liveText; -- ???????
  
@@ -290,31 +307,34 @@ BEGIN
  
 			IF (disable = '1' AND lives = "000") THEN
 				--if (gameModeText = "111") then -- game over title
-				IF (pixel_row = "01101") THEN
-					IF (pixel_col = "10001") THEN
-						character_address <= G;
-					ELSIF (pixel_col = "10010") THEN
-						character_address <= A;
-					ELSIF (pixel_col = "10011") THEN
-						character_address <= M;
-					ELSIF (pixel_col = "10100") THEN
-						character_address <= E;
-					ELSIF (pixel_col = "10110") THEN
-						character_address <= O;
-					ELSIF (pixel_col = "10111") THEN
-						character_address <= V;
-					ELSIF (pixel_col = "11000") THEN
-						character_address <= E;
-					ELSIF (pixel_col = "11001") THEN
-						character_address <= R;
-					ELSE
-						character_address <= space;
-					END IF;
-					character_address <= space;
-					--end if;
-				END IF;
+				
 			ELSIF (disable = '1') THEN-- paused screen
-				IF (pixel_row = "01101") THEN
+				IF (lives = "000") THEN
+					IF (pixel_row = "01101") THEN
+						IF (pixel_col = "10001") THEN
+							character_address <= G;
+						ELSIF (pixel_col = "10010") THEN
+							character_address <= A;
+						ELSIF (pixel_col = "10011") THEN
+							character_address <= M;
+						ELSIF (pixel_col = "10100") THEN
+							character_address <= E;
+						ELSIF (pixel_col = "10110") THEN
+							character_address <= O;
+						ELSIF (pixel_col = "10111") THEN
+							character_address <= V;
+						ELSIF (pixel_col = "11000") THEN
+							character_address <= E;
+						ELSIF (pixel_col = "11001") THEN
+							character_address <= R;
+						ELSE
+							character_address <= space;
+						END IF;
+						character_address <= space;
+					--end if;
+					END IF;
+				ELSE
+					IF (pixel_row = "01101") THEN
 					IF (pixel_col = "10001") THEN
 						character_address <= P;
 					ELSIF (pixel_col = "10010") THEN
@@ -329,6 +349,7 @@ BEGIN
 						character_address <= D;
 					END IF;
  
+				END IF;
 				END IF;
 			END IF;
  
@@ -532,7 +553,30 @@ BEGIN
  
  
 				END IF; -- end if (enable = '1')
-
+				
+				IF (liveText = zero AND enable = '1') THEN -- game over
+					IF (pixel_row = "01110") THEN
+						IF (pixel_col = "01111") THEN
+							character_address <= G;
+						ELSIF (pixel_col = "10000") THEN
+							character_address <= A;
+						ELSIF (pixel_col = "10001") THEN
+							character_address <= M;
+						ELSIF (pixel_col = "10010") THEN
+							character_address <= E;
+						ELSIF (pixel_col = "10100") THEN
+							character_address <= O;
+						ELSIF (pixel_col = "10101") THEN
+							character_address <= V;
+						ELSIF (pixel_col = "10110") THEN
+							character_address <= E;
+						ELSIF (pixel_col = "10111") THEN
+							character_address <= R;
+						ELSE
+							character_address <= space;
+						END IF;
+					END IF;
+				END IF;
 			END PROCESS;
 
 END ARCHITECTURE;

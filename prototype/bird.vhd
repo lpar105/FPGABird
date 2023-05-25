@@ -52,34 +52,41 @@ begin
 		
 		-- Set motion
 		if (disable = '1') then
+			-- don't move when paused and dead
 			bird_y_motion <= CONV_STD_LOGIC_VECTOR(0,10);
 		elsif(left_click = '1' and prev_click_status = '0') then
+		   -- Push the bird
 			velocity := 150;
 			if (thrust >= 20) then
+				-- Smaller thrust when spam clicking
 				thrust :=  thrust + 35;
 			else
 				thrust :=  100;
 			end if;
 			bird_y_motion <= - CONV_STD_LOGIC_VECTOR(0,10);
 		elsif (bird_y_pos < 470 or thrust > 0) then
+			-- Fall
 			velocity := velocity + 20 - thrust;
 			bird_y_motion <= CONV_STD_LOGIC_VECTOR(velocity/100,10);
 		else
+			-- Don't fall if off screen (no wrapping)
 			bird_y_motion <= CONV_STD_LOGIC_VECTOR(0,10);
 		end if;
 		bird_y_pos <= bird_y_pos + bird_y_motion;
 		
 		if (bird_y_pos > 413) then
+			-- Stick to floor
 			bird_y_pos <= CONV_STD_LOGIC_VECTOR(413,10);
 			velocity := 0;
 		end if;
 		
 		if (bird_y_pos < 64) then
+			-- Stick to ceiling
 			bird_y_pos <= CONV_STD_LOGIC_VECTOR(68,10);
 			velocity := 0;
 		end if;
 		
-		-- Update previous click status
+		-- Update previous click status so click and hold does nothing
 		if(left_click = '1') then
 			prev_click_status := '1';
 		else 
