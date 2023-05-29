@@ -12,7 +12,7 @@ ENTITY koopas IS
 		  pipe_x1_pos		: IN std_logic_vector(10 DOWNTO 0);
 		  pipe_x2_pos		: IN std_logic_vector(10 DOWNTO 0);
 		  game_mode									: IN std_logic_vector(2 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic);		
+		  red, green	 			: OUT std_logic);		
 END koopas;
 
 

@@ -10,9 +10,7 @@ ENTITY MOUSE IS
    PORT( clock_25Mhz, reset 		: IN std_logic;
          mouse_data					: INOUT std_logic;
          mouse_clk 					: INOUT std_logic;
-         left_button, right_button	: OUT std_logic;
-		 mouse_cursor_row 			: OUT std_logic_vector(9 DOWNTO 0); 
-		 mouse_cursor_column 		: OUT std_logic_vector(9 DOWNTO 0));       	
+         left_button					: OUT std_logic);      	
 END MOUSE;
 
 ARCHITECTURE behavior OF MOUSE IS
@@ -43,8 +41,6 @@ SIGNAL filter 										: std_logic_vector(7 DOWNTO 0);
 
 BEGIN
 
-mouse_cursor_row <= cursor_row;
-mouse_cursor_column <= cursor_column;
 
 			-- tri_state control logic for mouse data and clock lines
 MOUSE_DATA <= 'Z' WHEN MOUSE_DATA_DIR = '0' ELSE MOUSE_DATA_BUF;
@@ -192,7 +188,6 @@ IF RESET='1' THEN
     READ_CHAR <= '0';
 	PACKET_COUNT <= "00";
     LEFT_BUTTON <= '0';
-    RIGHT_BUTTON <= '0';
 	CHARIN <= "00000000";
 ELSIF MOUSE_CLK_FILTER'event and MOUSE_CLK_FILTER='0' THEN
 	IF MOUSE_DATA_DIR='0' THEN
@@ -261,7 +256,6 @@ ELSIF MOUSE_CLK_FILTER'event and MOUSE_CLK_FILTER='0' THEN
     				NEW_cursor_column <= cursor_column + (PACKET_CHAR2(7) & 
 								PACKET_CHAR2(7) & PACKET_CHAR2);
     				LEFT_BUTTON <= PACKET_CHAR1(0);
-    				RIGHT_BUTTON <= PACKET_CHAR1(1);
   				END IF;
 			END IF;
   		END IF;

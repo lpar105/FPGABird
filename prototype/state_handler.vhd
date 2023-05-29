@@ -6,7 +6,6 @@ USE IEEE.STD_LOGIC_SIGNED.all;
 ENTITY state_handler IS
 	PORT (
 		sw, start, pause, play_1, play_2, changeMode : IN std_logic;
-		score : IN std_logic_vector(9 DOWNTO 0);
 		lives : IN std_logic_vector(2 DOWNTO 0);
 		last_mode : IN std_logic_vector(2 downto 0);
 		enable : OUT std_logic;

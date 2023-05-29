@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 entity collision is
   port (
-    clk, red_bird, green_bird, blue_bird, red_pipe, green_pipe, blue_pipe, red_koopa, green_koopa, blue_koopa, red_star, green_star, blue_star, red_oneup, green_oneup, blue_oneup: in std_logic;
+    clk, red_bird, green_bird, blue_bird, red_pipe, green_pipe, blue_pipe, red_koopa, green_koopa, red_star, green_star, blue_star: in std_logic;
     currentlives : in std_logic_vector(2 downto 0);
     enable, disable: in std_logic;
     red, green, blue, hit: out std_logic;
@@ -26,12 +26,12 @@ begin
 			'0' ;
 	
   --oneup is actually star lmao. the symbol file is REFUSING to update
-  red <= red_immune or red_oneup;
-  green <= green_pipe or green_koopa or green_oneup;
+  red <= red_immune or red_star;
+  green <= green_pipe or green_koopa or green_star;
   blue <= blue_bird;
 
   collisionhit <= (green_pipe or green_koopa) and blue_bird;
-  immunityhit <= red_oneup and blue_bird;
+  immunityhit <= red_star and blue_bird;
 
   process (clk)
   begin
